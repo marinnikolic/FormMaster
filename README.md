@@ -19,7 +19,7 @@ This library aids in building bigger forms on-the-fly. Forms with large number o
 ## Installation
 Add this in your app's **build.gradle** file:
 ```
-[![](https://jitpack.io/v/marinnikolic/FormMaster.svg)](https://jitpack.io/#marinnikolic/FormMaster)
+    implementation 'com.github.marinnikolic:FormMaster:master'
 ```
 
 
