@@ -29,9 +29,9 @@
             android:textColor="@color/colorFormMasterElementTextTitle"/>
 
         <android.support.v7.widget.AppCompatTextView
-            android:layout_width="0dp"
-            android:layout_weight="3"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="3"
             android:background="@null"
             android:textSize="@dimen/elementTextValueSize"
             android:gravity="right"
@@ -46,6 +46,7 @@
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/image_view"
             android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content" />
 

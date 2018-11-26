@@ -39,11 +39,14 @@ public class FormElementSelectViewHolder extends BaseViewHolder {
         mTextViewTitle.setText(formElement.getTitle());
         mTextViewValue.setText(formElement.getValue());
         mTextViewValue.setHint(formElement.getHint());
-        appCompatImageView.setImageDrawable(mFormElement.getArrowRightDrawable());
+        appCompatImageView.setImageDrawable(mFormElement.getDrawable());
 
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(mOnSelectListener == null) {
+                    return;
+                }
                 mOnSelectListener.didPressFormElement(mFormElement);
             }
         });

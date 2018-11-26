@@ -4,7 +4,7 @@ import android.graphics.drawable.Drawable;
 
 public class FormElementSelect extends BaseFormElement {
 
-    private Drawable arrowRightDrawable;
+    private Drawable drawable;
 
     public FormElementSelect() { }
 
@@ -38,11 +38,11 @@ public class FormElementSelect extends BaseFormElement {
         return (FormElementSelect)  super.setRequired(required);
     }
 
-    public Drawable getArrowRightDrawable() {
-        return arrowRightDrawable;
+    public Drawable getDrawable() {
+        return drawable;
     }
 
-    public void setArrowRightDrawable(Drawable arrowRightDrawable) {
-        this.arrowRightDrawable = arrowRightDrawable;
+    public void setDrawable(Drawable drawable) {
+        this.drawable = drawable;
     }
 }
