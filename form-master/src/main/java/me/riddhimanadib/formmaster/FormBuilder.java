@@ -10,7 +10,9 @@ import java.util.List;
 
 import me.riddhimanadib.formmaster.adapter.FormAdapter;
 import me.riddhimanadib.formmaster.listener.OnFormElementValueChangedListener;
+import me.riddhimanadib.formmaster.listener.OnSelectListener;
 import me.riddhimanadib.formmaster.model.BaseFormElement;
+import me.riddhimanadib.formmaster.model.FormElementSelect;
 
 /** Wrapper class around the adapter to assist in building form
  * Created by Adib on 16-Apr-17.
@@ -26,7 +28,7 @@ public class FormBuilder {
      * @param recyclerView
      */
     public FormBuilder(Context context, RecyclerView recyclerView) {
-        initializeFormBuildHelper(context, recyclerView, null);
+        initializeFormBuildHelper(context, recyclerView, null, null);
     }
 
     /**
@@ -35,7 +37,15 @@ public class FormBuilder {
      * @param recyclerView
      */
     public FormBuilder(Context context, RecyclerView recyclerView, OnFormElementValueChangedListener listener) {
-        initializeFormBuildHelper(context, recyclerView, listener);
+        initializeFormBuildHelper(context, recyclerView, listener, null);
+    }
+
+    public FormBuilder(Context context, RecyclerView recyclerView, OnSelectListener onSelectListener) {
+        initializeFormBuildHelper(context, recyclerView, null, onSelectListener);
+    }
+
+    public FormBuilder(Context context, RecyclerView recyclerView, OnFormElementValueChangedListener listener, OnSelectListener onSelectListener) {
+        initializeFormBuildHelper(context, recyclerView, listener, onSelectListener);
     }
 
     /**
@@ -44,10 +54,10 @@ public class FormBuilder {
      * @param recyclerView
      * @param listener
      */
-    private void initializeFormBuildHelper(Context context, RecyclerView recyclerView, OnFormElementValueChangedListener listener) {
+    private void initializeFormBuildHelper(Context context, RecyclerView recyclerView, OnFormElementValueChangedListener listener, OnSelectListener onSelectListener) {
 
         // initialize form adapter
-        this.mFormAdapter = new FormAdapter(context, listener);
+        this.mFormAdapter = new FormAdapter(context, listener, onSelectListener);
 
         // set up the recyclerview with adapter
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);

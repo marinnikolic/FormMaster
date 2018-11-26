@@ -12,8 +12,10 @@ import java.util.List;
 import me.riddhimanadib.formmaster.R;
 import me.riddhimanadib.formmaster.listener.FormItemEditTextListener;
 import me.riddhimanadib.formmaster.listener.OnFormElementValueChangedListener;
+import me.riddhimanadib.formmaster.listener.OnSelectListener;
 import me.riddhimanadib.formmaster.model.BaseFormElement;
 import me.riddhimanadib.formmaster.viewholder.BaseViewHolder;
+import me.riddhimanadib.formmaster.viewholder.FormElementSelectViewHolder;
 import me.riddhimanadib.formmaster.viewholder.FormElementHeader;
 import me.riddhimanadib.formmaster.viewholder.FormElementPickerDateViewHolder;
 import me.riddhimanadib.formmaster.viewholder.FormElementPickerMultiViewHolder;
@@ -38,14 +40,16 @@ public class FormAdapter extends RecyclerView.Adapter<BaseViewHolder> implements
     private Context mContext;
     private List<BaseFormElement> mDataset;
     private OnFormElementValueChangedListener mListener;
+    private OnSelectListener mSelectListener;
 
     /**
      * public constructor with context
      * @param context
      */
-    public FormAdapter(Context context, OnFormElementValueChangedListener listener) {
+    public FormAdapter(Context context, OnFormElementValueChangedListener listener, OnSelectListener selectListener) {
         mContext = context;
         mListener = listener;
+        mSelectListener = selectListener;
         mDataset = new ArrayList<>();
     }
 
@@ -149,6 +153,7 @@ public class FormAdapter extends RecyclerView.Adapter<BaseViewHolder> implements
      */
     @Override
     public int getItemViewType(int position) {
+        mDataset.get(position).getType();
         return mDataset.get(position).getType();
     }
 
@@ -201,6 +206,9 @@ public class FormAdapter extends RecyclerView.Adapter<BaseViewHolder> implements
             case BaseFormElement.TYPE_SWITCH:
                 v = inflater.inflate(R.layout.form_element_switch, parent, false);
                 return new FormElementSwitchViewHolder(v, mContext, this);
+            case BaseFormElement.TYPE_BUTTON:
+                v = inflater.inflate(R.layout.form_element_select, parent, false);
+                return new FormElementSelectViewHolder(v, mContext, this, mSelectListener);
             default:
                 v = inflater.inflate(R.layout.form_element, parent, false);
                 return new FormElementTextSingleLineViewHolder(v, new FormItemEditTextListener(this));
@@ -222,6 +230,7 @@ public class FormAdapter extends RecyclerView.Adapter<BaseViewHolder> implements
 
         // gets current object
         BaseFormElement currentObject = mDataset.get(position);
+
         holder.bind(position, currentObject, mContext);
     }
 
