@@ -70,6 +70,10 @@ public class FormBuilder {
 
     }
 
+    public void reloadFormElements() {
+        this.mFormAdapter.notifyDataSetChanged();
+    }
+
     /**
      * add list of form elements to be shown
      * @param baseFormElements
