@@ -40,13 +40,6 @@
             android:textSize="@dimen/elementTextTitleSize"
             tools:text="Personal Info" />
 
-        <android.support.v7.widget.AppCompatImageView
-            android:id="@+id/image_view"
-            android:layout_weight="0.5"
-            android:layout_gravity="center_vertical|end"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content" />
-
     </LinearLayout>
 
 </LinearLayout>

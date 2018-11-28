@@ -4,7 +4,6 @@ import android.graphics.drawable.Drawable;
 
 public class FormElementSelect extends BaseFormElement {
 
-    private Drawable drawable;
 
     public FormElementSelect() { }
 
@@ -36,13 +35,5 @@ public class FormElementSelect extends BaseFormElement {
 
     public FormElementSelect setRequired(boolean required) {
         return (FormElementSelect)  super.setRequired(required);
-    }
-
-    public Drawable getDrawable() {
-        return drawable;
-    }
-
-    public void setDrawable(Drawable drawable) {
-        this.drawable = drawable;
     }
 }

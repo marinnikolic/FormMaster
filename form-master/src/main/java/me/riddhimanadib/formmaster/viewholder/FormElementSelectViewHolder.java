@@ -2,7 +2,6 @@ package me.riddhimanadib.formmaster.viewholder;
 
 import android.content.Context;
 import android.support.v7.widget.AppCompatImageButton;
-import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
 
@@ -20,12 +19,10 @@ public class FormElementSelectViewHolder extends BaseViewHolder {
     private ReloadListener mReloadListener;
     private FormElementSelect mFormElement;
     private OnSelectListener mOnSelectListener;
-    private AppCompatImageView appCompatImageView;
     private int mPosition;
 
     public FormElementSelectViewHolder(View v, Context context, ReloadListener reloadListener, OnSelectListener onSelectListener) {
         super(v);
-        appCompatImageView = v.findViewById(R.id.image_view);
         mTextViewTitle = v.findViewById(R.id.formElementTitle);
         mTextViewValue = v.findViewById(R.id.formElementValue);
         mReloadListener = reloadListener;
@@ -39,7 +36,6 @@ public class FormElementSelectViewHolder extends BaseViewHolder {
         mTextViewTitle.setText(formElement.getTitle());
         mTextViewValue.setText(formElement.getValue());
         mTextViewValue.setHint(formElement.getHint());
-        appCompatImageView.setImageDrawable(mFormElement.getDrawable());
 
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
