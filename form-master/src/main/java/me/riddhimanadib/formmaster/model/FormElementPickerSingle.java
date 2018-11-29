@@ -10,7 +10,7 @@ import java.util.List;
 public class FormElementPickerSingle extends BaseFormElement {
 
     private String pickerTitle; // custom title for picker
-    private List<String> mOptions; // list of options for single and multi picker
+    private List<FormPickerSelectable> mOptions; // list of options for single and multi picker
     private List<String> mOptionsSelected; // list of selected options for single and multi picker
 
     public FormElementPickerSingle() {
@@ -48,7 +48,7 @@ public class FormElementPickerSingle extends BaseFormElement {
     }
 
     // custom setters
-    public FormElementPickerSingle setOptions(List<String> mOptions) {
+    public FormElementPickerSingle setOptions(List<FormPickerSelectable> mOptions) {
         this.mOptions = mOptions;
         return this;
     }
@@ -64,8 +64,8 @@ public class FormElementPickerSingle extends BaseFormElement {
     }
 
     // custom getters
-    public List<String> getOptions() {
-        return (this.mOptions == null) ? new ArrayList<String>() : this.mOptions;
+    public List<FormPickerSelectable> getOptions() {
+        return (this.mOptions == null) ? new ArrayList<FormPickerSelectable>() : this.mOptions;
     }
 
     public List<String> getOptionsSelected() {

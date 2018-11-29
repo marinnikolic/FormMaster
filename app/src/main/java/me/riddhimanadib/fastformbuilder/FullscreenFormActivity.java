@@ -81,13 +81,6 @@ public class FullscreenFormActivity extends AppCompatActivity {
         FormElementTextPassword element33 = FormElementTextPassword.createInstance().setTitle("Password").setValue("abcd1234");
 
         FormHeader header4 = FormHeader.createInstance("Preferred Items");
-        List<String> fruits = new ArrayList<>();
-        fruits.add("Banana");
-        fruits.add("Orange");
-        fruits.add("Mango");
-        fruits.add("Guava");
-        FormElementPickerSingle element41 = FormElementPickerSingle.createInstance().setTitle("Single Item").setOptions(fruits).setPickerTitle("Pick any item");
-        FormElementPickerMulti element42 = FormElementPickerMulti.createInstance().setTitle("Multi Items").setOptions(fruits).setPickerTitle("Pick one or more").setNegativeText("reset");
         FormElementSwitch element43 = FormElementSwitch.createInstance().setTitle("Frozen?").setSwitchTexts("Yes", "No");
 
         List<BaseFormElement> formItems = new ArrayList<>();
@@ -103,8 +96,6 @@ public class FullscreenFormActivity extends AppCompatActivity {
         formItems.add(element32);
         formItems.add(element33);
         formItems.add(header4);
-        formItems.add(element41);
-        formItems.add(element42);
         formItems.add(element43);
         mFormBuilder.addFormElements(formItems);
 
