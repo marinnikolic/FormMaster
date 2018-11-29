@@ -12,9 +12,9 @@ public class FormElementPickerSingle extends BaseFormElement {
     private String pickerTitle; // custom title for picker
     private List<FormPickerSelectable> mOptions; // list of options for single and multi picker
     private List<String> mOptionsSelected; // list of selected options for single and multi picker
+    private int selectedPickerIndex;
 
-    public FormElementPickerSingle() {
-    }
+    public FormElementPickerSingle() { }
 
     public static FormElementPickerSingle createInstance() {
         FormElementPickerSingle formElementPickerSingle = new FormElementPickerSingle();
@@ -51,6 +51,14 @@ public class FormElementPickerSingle extends BaseFormElement {
     public FormElementPickerSingle setOptions(List<FormPickerSelectable> mOptions) {
         this.mOptions = mOptions;
         return this;
+    }
+
+    public void setSelectedPickerIndex(int i) {
+        this.selectedPickerIndex = i;
+    }
+
+    public FormPickerSelectable getSelectedObject() {
+        return mOptions.get(selectedPickerIndex);
     }
 
     public FormElementPickerSingle setOptionsSelected(List<String> mOptionsSelected) {
