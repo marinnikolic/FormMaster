@@ -59,7 +59,7 @@ public class FormElementPickerSingle extends BaseFormElement {
 
     public FormPickerSelectable getSelectedObject() {
         if(selectedPickerIndex == null) {
-            new FormPickerSelectable() {
+            return new FormPickerSelectable() {
                 @Override
                 public String getOption() {
                     return "";
