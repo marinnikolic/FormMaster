@@ -46,7 +46,7 @@ public class FormElementPickerSingleViewHolder extends BaseViewHolder {
         // reformat the options in format needed
         final CharSequence[] options = new CharSequence[mFormElementPickerSingle.getOptions().size()];
         for (int i = 0; i < mFormElementPickerSingle.getOptions().size(); i++) {
-            options[i] = mFormElementPickerSingle.getOptions().get(i).getOption();
+            options[i] = mFormElementPickerSingle.getOptions().get(i);
         }
 
         final AlertDialog dialog = new AlertDialog.Builder(context)
@@ -55,7 +55,6 @@ public class FormElementPickerSingleViewHolder extends BaseViewHolder {
                 public void onClick(DialogInterface dialog, int which) {
                     mEditTextValue.setText(options[which]);
                     mFormElementPickerSingle.setValue(options[which].toString());
-                    mFormElementPickerSingle.setSelectedPickerIndex(which);
                     mReloadListener.updateValue(position, options[which].toString());
                 }
             })
