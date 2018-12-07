@@ -42,6 +42,10 @@ public class FormElementSwitch extends BaseFormElement {
         return (FormElementSwitch)  super.setRequired(required);
     }
 
+    public FormElementSwitch setEditable(boolean editable) {
+        return (FormElementSwitch)  super.setEditable(editable);
+    }
+
     // custom setters
     public FormElementSwitch setSwitchTexts(String positiveText, String negativeText) {
         this.positiveText = positiveText;

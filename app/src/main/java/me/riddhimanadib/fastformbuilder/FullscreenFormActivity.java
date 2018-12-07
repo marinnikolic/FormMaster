@@ -65,7 +65,6 @@ public class FullscreenFormActivity extends AppCompatActivity {
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         mFormBuilder = new FormBuilder(this, mRecyclerView);
-
         FormHeader header1 = FormHeader.createInstance("Personal Info");
         FormElementTextEmail element11 = FormElementTextEmail.createInstance().setTitle("Email").setHint("Enter Email");
         FormElementTextPhone element12 = FormElementTextPhone.createInstance().setTitle("Phone").setValue("+8801712345678");

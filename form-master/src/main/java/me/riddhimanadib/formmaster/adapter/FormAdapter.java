@@ -246,5 +246,4 @@ public class FormAdapter extends RecyclerView.Adapter<BaseViewHolder> implements
         if (mListener != null)
             mListener.onValueChanged(mDataset.get(position));
     }
-
 }

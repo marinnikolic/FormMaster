@@ -30,6 +30,7 @@ public class FormElementSwitchViewHolder extends BaseViewHolder {
 
     public FormElementSwitchViewHolder(View v, Context context, ReloadListener reloadListener) {
         super(v);
+        mFormElement = new BaseFormElement();
         mTextViewTitle = (AppCompatTextView) v.findViewById(R.id.formElementTitle);
         mTextViewPositive = (AppCompatTextView) v.findViewById(R.id.formElementPositiveText);
         mTextViewNegative = (AppCompatTextView) v.findViewById(R.id.formElementNegativeText);
@@ -46,6 +47,11 @@ public class FormElementSwitchViewHolder extends BaseViewHolder {
         mTextViewTitle.setText(mFormElementSwitch.getTitle());
         mTextViewPositive.setText(mFormElementSwitch.getPositiveText());
         mTextViewNegative.setHint(mFormElementSwitch.getNegativeText());
+        mTextViewTitle.setEnabled(formElement.isEditable());
+        mTextViewNegative.setEnabled(formElement.isEditable());
+        mTextViewPositive.setEnabled(formElement.isEditable());
+        mSwitch.setClickable(formElement.isEditable());
+
         mSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {

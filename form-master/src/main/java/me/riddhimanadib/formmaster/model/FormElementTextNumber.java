@@ -38,5 +38,7 @@ public class FormElementTextNumber extends BaseFormElement {
     public FormElementTextNumber setRequired(boolean required) {
         return (FormElementTextNumber)  super.setRequired(required);
     }
-    
+    public FormElementTextNumber setEditable(boolean editable) {
+        return (FormElementTextNumber)  super.setEditable(editable);
+    }
 }

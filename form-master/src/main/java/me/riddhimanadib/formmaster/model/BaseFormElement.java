@@ -1,5 +1,7 @@
 package me.riddhimanadib.formmaster.model;
 
+import android.widget.EditText;
+
 /**
  * Created by Adib on 16-Apr-17.
  */
@@ -28,6 +30,7 @@ public class BaseFormElement {
     private String mValue; // value to be shown on right
     private String mHint; // value to be shown if mValue is null
     private boolean mRequired; // value to set is the field is required
+    private boolean mEditable = true;
 
     // setters
     public BaseFormElement setTag(int mTag) {
@@ -60,6 +63,10 @@ public class BaseFormElement {
         return this;
     }
 
+    public BaseFormElement setEditable(boolean editable) {
+        this.mEditable = editable;
+        return this;
+    }
     // getters
     public int getTag() {
         return this.mTag;
@@ -85,6 +92,11 @@ public class BaseFormElement {
         return this.mRequired;
     }
 
+    public boolean isEditable() {
+        return this.mEditable;
+    }
+
+
     @Override
     public String toString() {
         return "BaseFormElement{" +
@@ -96,4 +108,5 @@ public class BaseFormElement {
                 ", mRequired=" + mRequired +
                 '}';
     }
+
 }

@@ -36,6 +36,8 @@ public class FormElementSelectViewHolder extends BaseViewHolder {
         mTextViewTitle.setText(formElement.getTitle());
         mTextViewValue.setText(formElement.getValue());
         mTextViewValue.setHint(formElement.getHint());
+        mTextViewTitle.setEnabled(formElement.isEditable());
+        mTextViewValue.setEnabled(formElement.isEditable());
 
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override

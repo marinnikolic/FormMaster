@@ -38,5 +38,8 @@ public class FormElementTextPassword extends BaseFormElement {
     public FormElementTextPassword setRequired(boolean required) {
         return (FormElementTextPassword)  super.setRequired(required);
     }
-    
+
+    public FormElementTextPassword setEditable(boolean editable) {
+        return (FormElementTextPassword)  super.setEditable(editable);
+    }
 }

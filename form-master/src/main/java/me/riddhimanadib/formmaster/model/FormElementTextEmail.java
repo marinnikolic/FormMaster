@@ -1,5 +1,7 @@
 package me.riddhimanadib.formmaster.model;
 
+import android.widget.EditText;
+
 /**
  * Created by Riddhi - Rudra on 28-Jul-17.
  */
@@ -37,6 +39,9 @@ public class FormElementTextEmail extends BaseFormElement {
 
     public FormElementTextEmail setRequired(boolean required) {
         return (FormElementTextEmail)  super.setRequired(required);
+    }
+    public FormElementTextEmail setEditable(boolean editable) {
+        return (FormElementTextEmail)  super.setEditable(editable);
     }
 
 }

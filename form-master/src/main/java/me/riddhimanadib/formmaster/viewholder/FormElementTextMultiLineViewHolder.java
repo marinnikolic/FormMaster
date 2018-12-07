@@ -42,6 +42,8 @@ public class FormElementTextMultiLineViewHolder extends BaseViewHolder {
         mTextViewTitle.setText(formElement.getTitle());
         mEditTextValue.setText(formElement.getValue());
         mEditTextValue.setHint(formElement.getHint());
+        mTextViewTitle.setEnabled(formElement.isEditable());
+        mEditTextValue.setEnabled(formElement.isEditable());
 
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override

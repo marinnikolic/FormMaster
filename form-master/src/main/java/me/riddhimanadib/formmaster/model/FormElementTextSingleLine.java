@@ -39,4 +39,7 @@ public class FormElementTextSingleLine extends BaseFormElement {
         return (FormElementTextSingleLine)  super.setRequired(required);
     }
 
+    public FormElementTextSingleLine setEditable(boolean editable) {
+        return (FormElementTextSingleLine)  super.setEditable(editable);
+    }
 }

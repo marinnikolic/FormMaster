@@ -39,4 +39,7 @@ public class FormElementTextMultiLine extends BaseFormElement {
         return (FormElementTextMultiLine)  super.setRequired(required);
     }
 
+    public FormElementTextMultiLine setEditable(boolean editable) {
+        return (FormElementTextMultiLine)  super.setEditable(editable);
+    }
 }

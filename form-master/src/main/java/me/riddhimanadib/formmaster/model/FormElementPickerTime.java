@@ -44,6 +44,10 @@ public class FormElementPickerTime extends BaseFormElement {
     public FormElementPickerTime setRequired(boolean required) {
         return (FormElementPickerTime)  super.setRequired(required);
     }
+    public FormElementPickerTime setEditable(boolean editable) {
+        return (FormElementPickerTime)  super.setEditable(editable);
+    }
+
 
     // custom setter
     public FormElementPickerTime setTimeFormat(String format) {

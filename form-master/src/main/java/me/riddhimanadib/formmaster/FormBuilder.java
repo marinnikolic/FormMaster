@@ -47,7 +47,6 @@ public class FormBuilder {
     public FormBuilder(Context context, RecyclerView recyclerView, OnFormElementValueChangedListener listener, OnSelectListener onSelectListener) {
         initializeFormBuildHelper(context, recyclerView, listener, onSelectListener);
     }
-
     /**
      * private method for initializing form build helper
      * @param context
@@ -106,5 +105,4 @@ public class FormBuilder {
         }
         return true;
     }
-
 }

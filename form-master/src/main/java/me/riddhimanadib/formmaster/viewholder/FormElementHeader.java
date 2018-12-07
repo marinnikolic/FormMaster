@@ -6,6 +6,7 @@ import android.view.View;
 
 import me.riddhimanadib.formmaster.R;
 import me.riddhimanadib.formmaster.model.BaseFormElement;
+import me.riddhimanadib.formmaster.model.FormElementSelect;
 
 /**
  * ViewHolder for Header
@@ -25,5 +26,6 @@ public class FormElementHeader extends BaseViewHolder {
     public void bind(int position, BaseFormElement formElement, final Context context) {
         mTextViewTitle.setText(formElement.getTitle());
     }
+
 
 }

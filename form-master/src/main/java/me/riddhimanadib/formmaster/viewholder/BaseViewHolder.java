@@ -14,6 +14,7 @@ import me.riddhimanadib.formmaster.model.BaseFormElement;
 
 public class BaseViewHolder extends RecyclerView.ViewHolder implements BaseViewHolderInterface {
 
+
     public BaseViewHolder(View itemView) {
         super(itemView);
     }

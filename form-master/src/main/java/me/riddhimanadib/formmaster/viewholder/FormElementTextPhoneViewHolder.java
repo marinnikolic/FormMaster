@@ -40,6 +40,8 @@ public class FormElementTextPhoneViewHolder extends BaseViewHolder {
         mTextViewTitle.setText(formElement.getTitle());
         mEditTextValue.setText(formElement.getValue());
         mEditTextValue.setHint(formElement.getHint());
+        mEditTextValue.setEnabled(formElement.isEditable());
+        mTextViewTitle.setEnabled(formElement.isEditable());
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

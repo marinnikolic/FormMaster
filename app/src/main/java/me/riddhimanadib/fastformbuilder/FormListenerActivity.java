@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +19,7 @@ import me.riddhimanadib.formmaster.model.FormElementPickerDate;
 import me.riddhimanadib.formmaster.model.FormElementPickerMulti;
 import me.riddhimanadib.formmaster.model.FormElementPickerSingle;
 import me.riddhimanadib.formmaster.model.FormElementPickerTime;
+import me.riddhimanadib.formmaster.model.FormElementSelect;
 import me.riddhimanadib.formmaster.model.FormElementSwitch;
 import me.riddhimanadib.formmaster.model.FormElementTextEmail;
 import me.riddhimanadib.formmaster.model.FormElementTextMultiLine;
@@ -26,6 +28,7 @@ import me.riddhimanadib.formmaster.model.FormElementTextPassword;
 import me.riddhimanadib.formmaster.model.FormElementTextPhone;
 import me.riddhimanadib.formmaster.model.FormElementTextSingleLine;
 import me.riddhimanadib.formmaster.model.FormHeader;
+import me.riddhimanadib.formmaster.viewholder.FormElementHeader;
 
 public class FormListenerActivity extends AppCompatActivity implements OnFormElementValueChangedListener {
 
@@ -80,6 +83,7 @@ public class FormListenerActivity extends AppCompatActivity implements OnFormEle
 
         FormHeader header3 = FormHeader.createInstance("Schedule");
         FormElementPickerDate element31 = FormElementPickerDate.createInstance().setTitle("Date").setDateFormat("MMM dd, yyyy");
+
         FormElementPickerTime element32 = FormElementPickerTime.createInstance().setTitle("Time").setTimeFormat("KK hh");
         FormElementTextPassword element33 = FormElementTextPassword.createInstance().setTitle("Password").setValue("abcd1234");
 
@@ -98,6 +102,7 @@ public class FormListenerActivity extends AppCompatActivity implements OnFormEle
         formItems.add(element32);
         formItems.add(element33);
         formItems.add(element43);
+
         mFormBuilder.addFormElements(formItems);
     }
 

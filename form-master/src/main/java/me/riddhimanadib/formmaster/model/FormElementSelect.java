@@ -36,4 +36,9 @@ public class FormElementSelect extends BaseFormElement {
     public FormElementSelect setRequired(boolean required) {
         return (FormElementSelect)  super.setRequired(required);
     }
+
+    public FormElementSelect setEditable(boolean editable) {
+        return (FormElementSelect)  super.setEditable(editable);
+    }
+
 }
