@@ -43,6 +43,8 @@ public class FormElementTextSingleLineViewHolder extends BaseViewHolder {
         mEditTextValue.setEnabled(formElement.isEditable());
         mTextViewTitle.setEnabled(formElement.isEditable());
 
+        if (!formElement.isEditable()) return;
+
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

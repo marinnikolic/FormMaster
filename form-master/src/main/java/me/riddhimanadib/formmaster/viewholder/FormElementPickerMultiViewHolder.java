@@ -46,6 +46,7 @@ public class FormElementPickerMultiViewHolder extends BaseViewHolder {
         mEditTextValue.setFocusableInTouchMode(false);
         mTextViewTitle.setEnabled(formElement.isEditable());
         mEditTextValue.setEnabled(formElement.isEditable());
+
         // reformat the options in format needed
         final CharSequence[] options = new CharSequence[mFormElementPickerMulti.getOptions().size()];
         final boolean[] optionsSelected = new boolean[mFormElementPickerMulti.getOptions().size()];
@@ -95,6 +96,8 @@ public class FormElementPickerMultiViewHolder extends BaseViewHolder {
                 })
                 .setNegativeButton(mFormElementPickerMulti.getNegativeText(), null)
                 .create();
+
+        if(!formElement.isEditable()) return;
 
         mEditTextValue.setOnClickListener(new View.OnClickListener() {
             @Override

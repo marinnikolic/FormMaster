@@ -62,6 +62,8 @@ public class FormElementPickerSingleViewHolder extends BaseViewHolder {
             })
             .create();
 
+        if (!formElement.isEditable()) return;
+
         mEditTextValue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

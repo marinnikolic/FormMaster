@@ -39,6 +39,8 @@ public class FormElementSelectViewHolder extends BaseViewHolder {
         mTextViewTitle.setEnabled(formElement.isEditable());
         mTextViewValue.setEnabled(formElement.isEditable());
 
+        if (!formElement.isEditable()) return;
+
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

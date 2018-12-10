@@ -42,6 +42,9 @@ public class FormElementTextNumberViewHolder extends BaseViewHolder {
         mEditTextValue.setHint(formElement.getHint());
         mTextViewTitle.setEnabled(formElement.isEditable());
         mEditTextValue.setEnabled(formElement.isEditable());
+
+        if (!formElement.isEditable()) return;
+
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

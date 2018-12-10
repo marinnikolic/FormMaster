@@ -52,6 +52,8 @@ public class FormElementSwitchViewHolder extends BaseViewHolder {
         mTextViewPositive.setEnabled(formElement.isEditable());
         mSwitch.setClickable(formElement.isEditable());
 
+        if(!formElement.isEditable()) return;
+
         mSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
