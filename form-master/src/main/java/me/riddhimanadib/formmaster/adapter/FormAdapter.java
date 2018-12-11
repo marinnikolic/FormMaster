@@ -51,6 +51,7 @@ public class FormAdapter extends RecyclerView.Adapter<BaseViewHolder> implements
         mListener = listener;
         mSelectListener = selectListener;
         mDataset = new ArrayList<>();
+        setHasStableIds(true);
     }
 
     /**
@@ -155,6 +156,11 @@ public class FormAdapter extends RecyclerView.Adapter<BaseViewHolder> implements
     public int getItemViewType(int position) {
         mDataset.get(position).getType();
         return mDataset.get(position).getType();
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
     }
 
     /**
