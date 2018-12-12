@@ -42,4 +42,12 @@ public class FormElementTextMultiLine extends BaseFormElement {
     public FormElementTextMultiLine setEditable(boolean editable) {
         return (FormElementTextMultiLine)  super.setEditable(editable);
     }
+
+    public FormElementTextMultiLine setTitleColor(int color) {
+        return (FormElementTextMultiLine)  super.setTitleColor(color);
+    }
+
+    public FormElementTextMultiLine setValueColor(int color) {
+        return (FormElementTextMultiLine)  super.setValueColor(color);
+    }
 }

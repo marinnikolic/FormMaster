@@ -41,4 +41,12 @@ public class FormElementTextNumber extends BaseFormElement {
     public FormElementTextNumber setEditable(boolean editable) {
         return (FormElementTextNumber)  super.setEditable(editable);
     }
+
+    public FormElementTextNumber setTitleColor(int color) {
+        return (FormElementTextNumber) super.setTitleColor(color);
+    }
+
+    public FormElementTextNumber setValueColor(int color) {
+        return (FormElementTextNumber) super.setValueColor(color);
+    }
 }

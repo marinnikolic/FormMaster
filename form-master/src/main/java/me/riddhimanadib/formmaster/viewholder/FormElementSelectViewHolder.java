@@ -33,11 +33,10 @@ public class FormElementSelectViewHolder extends BaseViewHolder {
     public void bind(int position, BaseFormElement formElement, Context context) {
         mFormElement = (FormElementSelect) formElement;
         mPosition = position;
-        mTextViewTitle.setText(formElement.getTitle());
-        mTextViewValue.setText(formElement.getValue());
-        mTextViewValue.setHint(formElement.getHint());
-        mTextViewTitle.setEnabled(formElement.isEditable());
-        mTextViewValue.setEnabled(formElement.isEditable());
+
+        setEditTextParameters(formElement);
+        setFieldEditable(formElement);
+        changingTextColor(formElement);
 
         if (!formElement.isEditable()) return;
 
@@ -50,5 +49,21 @@ public class FormElementSelectViewHolder extends BaseViewHolder {
                 mOnSelectListener.didPressFormElement(mFormElement);
             }
         });
+    }
+
+    private void setFieldEditable(BaseFormElement formElement) {
+        mTextViewTitle.setText(formElement.getTitle());
+        mTextViewValue.setText(formElement.getValue());
+        mTextViewValue.setHint(formElement.getHint());
+    }
+
+    private void setEditTextParameters(BaseFormElement formElement) {
+        mTextViewTitle.setEnabled(formElement.isEditable());
+        mTextViewValue.setEnabled(formElement.isEditable());
+    }
+
+    private void changingTextColor(BaseFormElement formElement) {
+        mTextViewValue.setTextColor(formElement.getValueColor());
+        mTextViewTitle.setTextColor(formElement.getTitleColor());
     }
 }

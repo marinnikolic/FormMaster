@@ -1,7 +1,12 @@
 package me.riddhimanadib.formmaster.model;
 
+import android.graphics.drawable.Drawable;
+import android.widget.ImageView;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import me.riddhimanadib.formmaster.R;
 
 /**
  * Created by Riddhi - Rudra on 28-Jul-17.
@@ -12,6 +17,7 @@ public class FormElementPickerSingle extends BaseFormElement {
     private String pickerTitle; // custom title for picker
     private List<String> mOptions; // list of options for single and multi picker
     private List<String> mOptionsSelected; // list of selected options for single and multi picker
+    private Drawable drawable;
 
     public FormElementPickerSingle() { }
 
@@ -50,6 +56,14 @@ public class FormElementPickerSingle extends BaseFormElement {
         return (FormElementPickerSingle)  super.setEditable(editable);
     }
 
+    public FormElementPickerSingle setValueColor(int color) {
+        return (FormElementPickerSingle) super.setValueColor(color);
+    }
+
+    public FormElementPickerSingle setTitleColor(int color) {
+        return (FormElementPickerSingle) super.setTitleColor(color);
+    }
+
     // custom setters
     public FormElementPickerSingle setOptions(List<String> mOptions) {
         this.mOptions = mOptions;
@@ -69,6 +83,13 @@ public class FormElementPickerSingle extends BaseFormElement {
     // custom getters
     public List<String> getOptions() {
         return (this.mOptions == null) ? new ArrayList<String>() : this.mOptions;
+    }
+
+    public Drawable getDrawable() { return drawable; }
+
+    public FormElementPickerSingle setDrawable(Drawable drawable) {
+        this.drawable = drawable;
+        return this;
     }
 
     public List<String> getOptionsSelected() {

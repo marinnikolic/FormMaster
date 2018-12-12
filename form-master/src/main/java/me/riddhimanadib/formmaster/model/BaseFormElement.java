@@ -1,5 +1,8 @@
 package me.riddhimanadib.formmaster.model;
 
+import android.graphics.Color;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.widget.EditText;
 
 /**
@@ -31,6 +34,8 @@ public class BaseFormElement {
     private String mHint; // value to be shown if mValue is null
     private boolean mRequired; // value to set is the field is required
     private boolean mEditable = true;
+    private int mValueColor =  Color.GRAY;
+    private int mTitleColor =  Color.BLACK;
 
     // setters
     public BaseFormElement setTag(int mTag) {
@@ -67,6 +72,17 @@ public class BaseFormElement {
         this.mEditable = editable;
         return this;
     }
+
+    public BaseFormElement setTitleColor(int color) {
+        this.mTitleColor = color;
+        return this;
+    }
+
+    public BaseFormElement setValueColor(int color) {
+        this.mValueColor = color;
+        return this;
+    }
+
     // getters
     public int getTag() {
         return this.mTag;
@@ -96,6 +112,9 @@ public class BaseFormElement {
         return this.mEditable;
     }
 
+    public int getTitleColor() { return this.mTitleColor; }
+
+    public int getValueColor() {return this.mValueColor;}
 
     @Override
     public String toString() {

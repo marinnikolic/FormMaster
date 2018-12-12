@@ -42,4 +42,12 @@ public class FormElementTextPassword extends BaseFormElement {
     public FormElementTextPassword setEditable(boolean editable) {
         return (FormElementTextPassword)  super.setEditable(editable);
     }
+
+    public FormElementTextPassword setTitleColor(int color) {
+        return (FormElementTextPassword) super.setTitleColor(color);
+    }
+
+    public FormElementTextPassword setValueColor(int color) {
+        return (FormElementTextPassword) super.setValueColor(color);
+    }
 }

@@ -52,6 +52,14 @@ public class FormElementPickerMulti extends BaseFormElement {
         return (FormElementPickerMulti)  super.setEditable(editable);
     }
 
+    public FormElementPickerMulti setValueColor(int color) {
+        return (FormElementPickerMulti) super.setValueColor(color);
+    }
+
+    public FormElementPickerMulti setTitleColor(int color) {
+        return (FormElementPickerMulti) super.setTitleColor(color);
+    }
+
     // custom setters
     public FormElementPickerMulti setOptions(List<String> mOptions) {
         this.options = mOptions;

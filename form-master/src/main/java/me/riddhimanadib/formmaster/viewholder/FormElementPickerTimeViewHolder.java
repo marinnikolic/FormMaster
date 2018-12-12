@@ -51,12 +51,10 @@ public class FormElementPickerTimeViewHolder extends BaseViewHolder {
         mPosition = position;
         mTextViewTitle.setText(formElement.getTitle());
 
-        mEditTextValue.setText(formElement.getValue());
-        mEditTextValue.setHint(formElement.getHint());
-        mEditTextValue.setFocusableInTouchMode(false);
-        mTextViewTitle.setEnabled(formElement.isEditable());
-        mEditTextValue.setEnabled(formElement.isEditable());
-
+        setEditTextParameters(formElement);
+        setFieldEditable(formElement);
+        changingTextColor(formElement);
+        
         if (!formElement.isEditable()) return;
 
         mEditTextValue.setOnClickListener(new View.OnClickListener() {
@@ -96,4 +94,19 @@ public class FormElementPickerTimeViewHolder extends BaseViewHolder {
         }
     };
 
+    private void setEditTextParameters(BaseFormElement formElement) {
+        mEditTextValue.setText(formElement.getValue());
+        mEditTextValue.setHint(formElement.getHint());
+        mEditTextValue.setFocusableInTouchMode(false);
+    }
+
+    private void setFieldEditable(BaseFormElement formElement) {
+        mTextViewTitle.setEnabled(formElement.isEditable());
+        mEditTextValue.setEnabled(formElement.isEditable());
+    }
+
+    private void changingTextColor(BaseFormElement formElement) {
+        mEditTextValue.setTextColor(formElement.getValueColor());
+        mTextViewTitle.setTextColor(formElement.getTitleColor());
+    }
 }

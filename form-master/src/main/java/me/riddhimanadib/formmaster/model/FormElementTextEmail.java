@@ -44,4 +44,12 @@ public class FormElementTextEmail extends BaseFormElement {
         return (FormElementTextEmail)  super.setEditable(editable);
     }
 
+    public FormElementTextEmail setTitleColor(int color) {
+        return (FormElementTextEmail) super.setTitleColor(color);
+    }
+
+    public FormElementTextEmail setValueColor(int color) {
+        return (FormElementTextEmail) super.setValueColor(color);
+    }
+
 }

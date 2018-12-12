@@ -1,5 +1,7 @@
 package me.riddhimanadib.formmaster.model;
 
+import java.text.Normalizer;
+
 /**
  * Created by Riddhi - Rudra on 28-Jul-17.
  */
@@ -41,5 +43,13 @@ public class FormElementTextSingleLine extends BaseFormElement {
 
     public FormElementTextSingleLine setEditable(boolean editable) {
         return (FormElementTextSingleLine)  super.setEditable(editable);
+    }
+
+    public FormElementTextSingleLine setTitleColor(int color) {
+        return (FormElementTextSingleLine) super.setTitleColor(color);
+    }
+
+    public FormElementTextSingleLine setValueColor(int color) {
+        return (FormElementTextSingleLine) super.setValueColor(color);
     }
 }

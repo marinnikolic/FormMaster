@@ -6,6 +6,7 @@ import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -44,34 +45,16 @@ public class FormElementPickerDateViewHolder extends BaseViewHolder {
         mFormElement = formElement;
         mPosition = position;
 
-        mDatePickerDialog = new DatePickerDialog(context,
-                date,
-                mCalendarCurrentDate.get(Calendar.YEAR),
-                mCalendarCurrentDate.get(Calendar.MONTH),
-                mCalendarCurrentDate.get(Calendar.DAY_OF_MONTH));
+        setUpDatePickerDialog(context);
 
-        mTextViewTitle.setText(formElement.getTitle());
-        mEditTextValue.setText(formElement.getValue());
-        mEditTextValue.setHint(formElement.getHint());
-        mEditTextValue.setFocusableInTouchMode(false);
-        mTextViewTitle.setEnabled(formElement.isEditable());
-        mEditTextValue.setEnabled(formElement.isEditable());
+        setEditTextParameters(formElement);
+        setFieldEditable(formElement);
+        changingTextColor(formElement);
 
         if(!formElement.isEditable()) return;
 
-        mEditTextValue.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mDatePickerDialog.show();
-            }
-        });
-
-        mTextViewTitle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mDatePickerDialog.show();
-            }
-        });
+        editTextValueClickListener();
+        textViewTitleClickListener();
     }
 
     /**
@@ -98,4 +81,46 @@ public class FormElementPickerDateViewHolder extends BaseViewHolder {
 
     };
 
+    private void setUpDatePickerDialog(Context context) {
+        mDatePickerDialog = new DatePickerDialog(context,
+                date,
+                mCalendarCurrentDate.get(Calendar.YEAR),
+                mCalendarCurrentDate.get(Calendar.MONTH),
+                mCalendarCurrentDate.get(Calendar.DAY_OF_MONTH));
+    }
+
+    private void setFieldEditable(BaseFormElement formElement) {
+        mTextViewTitle.setEnabled(formElement.isEditable());
+        mEditTextValue.setEnabled(formElement.isEditable());
+    }
+
+    private  void changingTextColor(BaseFormElement formElement) {
+        mEditTextValue.setTextColor(formElement.getValueColor());
+        mTextViewTitle.setTextColor(formElement.getTitleColor());
+    }
+
+    private void setEditTextParameters(BaseFormElement formElement) {
+        mTextViewTitle.setText(formElement.getTitle());
+        mEditTextValue.setText(formElement.getValue());
+        mEditTextValue.setHint(formElement.getHint());
+        mEditTextValue.setFocusableInTouchMode(false);
+    }
+
+    private void editTextValueClickListener() {
+        mEditTextValue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDatePickerDialog.show();
+            }
+        });
+    }
+
+    private void textViewTitleClickListener() {
+        mTextViewTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDatePickerDialog.show();
+            }
+        });
+    }
 }

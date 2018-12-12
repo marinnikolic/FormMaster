@@ -44,13 +44,9 @@ public class FormElementSwitchViewHolder extends BaseViewHolder {
         mPosition = position;
         mFormElementSwitch = (FormElementSwitch) mFormElement;
 
-        mTextViewTitle.setText(mFormElementSwitch.getTitle());
-        mTextViewPositive.setText(mFormElementSwitch.getPositiveText());
-        mTextViewNegative.setHint(mFormElementSwitch.getNegativeText());
-        mTextViewTitle.setEnabled(formElement.isEditable());
-        mTextViewNegative.setEnabled(formElement.isEditable());
-        mTextViewPositive.setEnabled(formElement.isEditable());
-        mSwitch.setClickable(formElement.isEditable());
+        setEditTextParameters();
+        setFieldEditable(formElement);
+        changingTextColor(formElement);
 
         if(!formElement.isEditable()) return;
 
@@ -62,4 +58,20 @@ public class FormElementSwitchViewHolder extends BaseViewHolder {
         });
     }
 
+    private void setEditTextParameters() {
+        mTextViewTitle.setText(mFormElementSwitch.getTitle());
+        mTextViewPositive.setText(mFormElementSwitch.getPositiveText());
+        mTextViewNegative.setHint(mFormElementSwitch.getNegativeText());
+    }
+
+    private void setFieldEditable(BaseFormElement formElement) {
+        mTextViewTitle.setEnabled(formElement.isEditable());
+        mTextViewNegative.setEnabled(formElement.isEditable());
+        mTextViewPositive.setEnabled(formElement.isEditable());
+        mSwitch.setClickable(formElement.isEditable());
+    }
+
+    private void changingTextColor(BaseFormElement formElement) {
+        mTextViewTitle.setTextColor(formElement.getTitleColor());
+    }
 }

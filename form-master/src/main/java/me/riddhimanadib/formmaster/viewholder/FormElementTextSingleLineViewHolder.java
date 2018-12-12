@@ -37,11 +37,10 @@ public class FormElementTextSingleLineViewHolder extends BaseViewHolder {
 
     @Override
     public void bind(int position, BaseFormElement formElement, final Context context) {
-        mTextViewTitle.setText(formElement.getTitle());
-        mEditTextValue.setText(formElement.getValue());
-        mEditTextValue.setHint(formElement.getHint());
-        mEditTextValue.setEnabled(formElement.isEditable());
-        mTextViewTitle.setEnabled(formElement.isEditable());
+
+        setEditTextParameters(formElement);
+        setFieldEditable(formElement);
+        changingTextColor(formElement);
 
         if (!formElement.isEditable()) return;
 
@@ -54,7 +53,24 @@ public class FormElementTextSingleLineViewHolder extends BaseViewHolder {
             }
         });
     }
-}
+
+    private void setEditTextParameters(BaseFormElement formElement) {
+        mTextViewTitle.setText(formElement.getTitle());
+        mEditTextValue.setText(formElement.getValue());
+        mEditTextValue.setHint(formElement.getHint());
+    }
+
+    private void setFieldEditable(BaseFormElement formElement) {
+        mEditTextValue.setEnabled(formElement.isEditable());
+        mTextViewTitle.setEnabled(formElement.isEditable());
+    }
+
+    private void changingTextColor(BaseFormElement formElement) {
+        mTextViewTitle.setTextColor(formElement.getTitleColor());
+        mEditTextValue.setTextColor(formElement.getValueColor());
+    }
+
+ }
 
 
 

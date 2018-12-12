@@ -1,9 +1,12 @@
 package me.riddhimanadib.formmaster.viewholder;
 
 import android.content.Context;
+import android.media.Image;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 
+import me.riddhimanadib.formmaster.R;
 import me.riddhimanadib.formmaster.listener.FormItemEditTextListener;
 import me.riddhimanadib.formmaster.model.BaseFormElement;
 
@@ -13,7 +16,6 @@ import me.riddhimanadib.formmaster.model.BaseFormElement;
  */
 
 public class BaseViewHolder extends RecyclerView.ViewHolder implements BaseViewHolderInterface {
-
 
     public BaseViewHolder(View itemView) {
         super(itemView);

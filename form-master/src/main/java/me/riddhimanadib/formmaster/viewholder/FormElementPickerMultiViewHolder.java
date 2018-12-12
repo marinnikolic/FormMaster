@@ -40,12 +40,9 @@ public class FormElementPickerMultiViewHolder extends BaseViewHolder {
         mPosition = position;
         mFormElementPickerMulti = (FormElementPickerMulti) mFormElement;
 
-        mTextViewTitle.setText(formElement.getTitle());
-        mEditTextValue.setText(formElement.getValue());
-        mEditTextValue.setHint(formElement.getHint());
-        mEditTextValue.setFocusableInTouchMode(false);
-        mTextViewTitle.setEnabled(formElement.isEditable());
-        mEditTextValue.setEnabled(formElement.isEditable());
+        setEditTextParameters(formElement);
+        setFieldEditable(formElement);
+        changingTextColor(formElement);
 
         // reformat the options in format needed
         final CharSequence[] options = new CharSequence[mFormElementPickerMulti.getOptions().size()];
@@ -114,4 +111,20 @@ public class FormElementPickerMultiViewHolder extends BaseViewHolder {
         });
     }
 
+    private void setEditTextParameters(BaseFormElement formElement) {
+        mTextViewTitle.setText(formElement.getTitle());
+        mEditTextValue.setText(formElement.getValue());
+        mEditTextValue.setHint(formElement.getHint());
+        mEditTextValue.setFocusableInTouchMode(false);
+    }
+
+    private void setFieldEditable(BaseFormElement formElement) {
+        mTextViewTitle.setEnabled(formElement.isEditable());
+        mEditTextValue.setEnabled(formElement.isEditable());
+    }
+
+    private void changingTextColor(BaseFormElement formElement) {
+        mEditTextValue.setTextColor(formElement.getValueColor());
+        mTextViewTitle.setTextColor(formElement.getTitleColor());
+    }
 }

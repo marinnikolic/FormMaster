@@ -41,4 +41,12 @@ public class FormElementSelect extends BaseFormElement {
         return (FormElementSelect)  super.setEditable(editable);
     }
 
+    public FormElementSelect setTitleColor(int color) {
+        return (FormElementSelect) super.setTitleColor(color);
+    }
+
+    public FormElementSelect setValueColor(int color) {
+        return (FormElementSelect) super.setValueColor(color);
+    }
+
 }

@@ -49,6 +49,14 @@ public class FormElementPickerDate extends BaseFormElement {
         return (FormElementPickerDate)  super.setEditable(editable);
     }
 
+    public FormElementPickerDate setTitleColor(int color) {
+        return (FormElementPickerDate) super.setTitleColor(color);
+    }
+
+    public FormElementPickerDate setValueColor(int color) {
+        return (FormElementPickerDate) super.setValueColor(color);
+    }
+
     // custom setter
     public FormElementPickerDate setDateFormat(String format) {
         checkValidDateFormat(format);

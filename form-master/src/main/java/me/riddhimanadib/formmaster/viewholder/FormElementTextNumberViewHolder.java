@@ -37,11 +37,10 @@ public class FormElementTextNumberViewHolder extends BaseViewHolder {
 
     @Override
     public void bind(int position, BaseFormElement formElement, final Context context) {
-        mTextViewTitle.setText(formElement.getTitle());
-        mEditTextValue.setText(formElement.getValue());
-        mEditTextValue.setHint(formElement.getHint());
-        mTextViewTitle.setEnabled(formElement.isEditable());
-        mEditTextValue.setEnabled(formElement.isEditable());
+
+        setEditTextParameters(formElement);
+        setFieldEditable(formElement);
+        changingTextColor(formElement);
 
         if (!formElement.isEditable()) return;
 
@@ -53,6 +52,22 @@ public class FormElementTextNumberViewHolder extends BaseViewHolder {
                 imm.showSoftInput(mEditTextValue, InputMethodManager.SHOW_IMPLICIT);
             }
         });
+    }
+
+    private void setEditTextParameters(BaseFormElement formElement) {
+        mTextViewTitle.setText(formElement.getTitle());
+        mEditTextValue.setText(formElement.getValue());
+        mEditTextValue.setHint(formElement.getHint());
+    }
+
+    private void setFieldEditable(BaseFormElement formElement) {
+        mTextViewTitle.setEnabled(formElement.isEditable());
+        mEditTextValue.setEnabled(formElement.isEditable());
+    }
+
+    private  void changingTextColor(BaseFormElement formElement) {
+        mTextViewTitle.setTextColor(formElement.getTitleColor());
+        mEditTextValue.setTextColor(formElement.getValueColor());
     }
 
 }

@@ -46,6 +46,10 @@ public class FormElementSwitch extends BaseFormElement {
         return (FormElementSwitch)  super.setEditable(editable);
     }
 
+    public FormElementSwitch setTitleColor(int color) {
+        return (FormElementSwitch) super.setTitleColor(color);
+    }
+
     // custom setters
     public FormElementSwitch setSwitchTexts(String positiveText, String negativeText) {
         this.positiveText = positiveText;

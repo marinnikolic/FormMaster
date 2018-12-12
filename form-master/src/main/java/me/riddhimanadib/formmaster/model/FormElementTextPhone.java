@@ -41,4 +41,12 @@ public class FormElementTextPhone extends BaseFormElement {
     public FormElementTextPhone setEditable(boolean editable) {
         return (FormElementTextPhone)  super.setEditable(editable);
     }
+
+    public FormElementTextPhone setTitleColor(int color) {
+        return (FormElementTextPhone) super.setTitleColor(color);
+    }
+
+    public FormElementTextPhone setValueColor(int color) {
+        return (FormElementTextPhone) super.setValueColor(color);
+    }
 }
