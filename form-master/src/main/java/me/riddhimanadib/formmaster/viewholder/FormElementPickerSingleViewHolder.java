@@ -39,7 +39,7 @@ public class FormElementPickerSingleViewHolder extends BaseViewHolder {
         mTextViewTitle = (AppCompatTextView) v.findViewById(R.id.formElementTitle);
         mEditTextValue = (AppCompatEditText) v.findViewById(R.id.formElementValue);
         mReloadListener = reloadListener;
-        showDropdownIcon(v, true);
+        showDropdownIcon(v, false);
     }
 
     @Override
@@ -79,9 +79,9 @@ public class FormElementPickerSingleViewHolder extends BaseViewHolder {
         mTextViewTitle.setTextColor(formElement.getTitleColor());
     }
 
-    private void showDropdownIcon(View v, boolean show) {
+    private void showDropdownIcon(View v, boolean isHidden) {
         mDropdownImage = v.findViewById(R.id.dropdownIcon);
-        if(!show)
+        if(isHidden)
             mDropdownImage.setVisibility(v.GONE);
         else
             mDropdownImage.setVisibility(v.VISIBLE);

@@ -18,6 +18,7 @@ public class FormElementPickerSingle extends BaseFormElement {
     private List<String> mOptions; // list of options for single and multi picker
     private List<String> mOptionsSelected; // list of selected options for single and multi picker
     private Drawable drawable;
+    private boolean hideDrawable = false;
 
     public FormElementPickerSingle() { }
 
@@ -84,6 +85,13 @@ public class FormElementPickerSingle extends BaseFormElement {
     public List<String> getOptions() {
         return (this.mOptions == null) ? new ArrayList<String>() : this.mOptions;
     }
+
+    /*public boolean isDrawableHidden() { return hideDrawable; }
+
+    public FormElementPickerSingle hideDrawable(boolean hide) {
+        this.hideDrawable = hide;
+        return this;
+    }*/
 
     public Drawable getDrawable() { return drawable; }
 

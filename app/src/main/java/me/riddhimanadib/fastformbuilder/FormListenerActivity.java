@@ -78,6 +78,7 @@ public class FormListenerActivity extends AppCompatActivity implements OnFormEle
         FormElementTextEmail element11 = FormElementTextEmail.createInstance().setTitle("Email").setValue("nekiMail@gmail.com");
         FormElementTextPhone element12 = FormElementTextPhone.createInstance().setTitle("Phone").setValue("+8801712345678");
         FormElementPickerSingle e1 = FormElementPickerSingle.createInstance().setTitle("Pick one").setValue("Test picker");
+        FormElementSelect select = FormElementSelect.createInstance().setTitle("Pick one").setValue("Test picker");
 
         FormHeader header2 = FormHeader.createInstance("Family Info");
         FormElementTextSingleLine element21 = FormElementTextSingleLine.createInstance().setTitle("Location").setValue("Dhaka");
@@ -98,6 +99,7 @@ public class FormListenerActivity extends AppCompatActivity implements OnFormEle
         formItems.add(element11);
         formItems.add(element12);
         formItems.add(e1);
+        formItems.add(select);
         formItems.add(header2);
         formItems.add(element21);
         formItems.add(element22);

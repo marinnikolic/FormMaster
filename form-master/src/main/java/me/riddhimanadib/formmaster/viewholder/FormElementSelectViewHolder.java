@@ -1,7 +1,9 @@
 package me.riddhimanadib.formmaster.viewholder;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.support.v7.widget.AppCompatImageButton;
+import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
 
@@ -15,11 +17,11 @@ public class FormElementSelectViewHolder extends BaseViewHolder {
 
     private AppCompatTextView mTextViewTitle;
     private AppCompatTextView mTextViewValue;
-    private AppCompatImageButton mImageButton;
     private ReloadListener mReloadListener;
     private FormElementSelect mFormElement;
     private OnSelectListener mOnSelectListener;
     private int mPosition;
+    private AppCompatImageView selectIconDrawable;
 
     public FormElementSelectViewHolder(View v, Context context, ReloadListener reloadListener, OnSelectListener onSelectListener) {
         super(v);
@@ -27,6 +29,7 @@ public class FormElementSelectViewHolder extends BaseViewHolder {
         mTextViewValue = v.findViewById(R.id.formElementValue);
         mReloadListener = reloadListener;
         mOnSelectListener = onSelectListener;
+        showDropdownIcon(v, true);
     }
 
     @Override
@@ -37,6 +40,7 @@ public class FormElementSelectViewHolder extends BaseViewHolder {
         setEditTextParameters(formElement);
         setFieldEditable(formElement);
         changingTextColor(formElement);
+        setDrawableIcon();
 
         if (!formElement.isEditable()) return;
 
@@ -53,6 +57,19 @@ public class FormElementSelectViewHolder extends BaseViewHolder {
                 mOnSelectListener.didPressFormElement(mFormElement);
             }
         });
+    }
+
+    private void setDrawableIcon() {
+        if(mFormElement.getDrawable() != null)
+            selectIconDrawable.setImageDrawable(mFormElement.getDrawable());
+    }
+
+    private void showDropdownIcon(View v, boolean show) {
+        selectIconDrawable = v.findViewById(R.id.selectIcon);
+        if(!show)
+            selectIconDrawable.setVisibility(v.GONE);
+        else
+            selectIconDrawable.setVisibility(v.VISIBLE);
     }
 
     private void setFieldEditable(BaseFormElement formElement) {

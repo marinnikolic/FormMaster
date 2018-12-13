@@ -5,6 +5,8 @@ import android.graphics.drawable.Drawable;
 public class FormElementSelect extends BaseFormElement {
 
 
+    private Drawable drawable;
+
     public FormElementSelect() { }
 
     public static FormElementSelect createInstance() {
@@ -48,5 +50,13 @@ public class FormElementSelect extends BaseFormElement {
     public FormElementSelect setValueColor(int color) {
         return (FormElementSelect) super.setValueColor(color);
     }
+
+    //custom methods
+    public FormElementSelect setDrawable(Drawable drawable) {
+        this.drawable = drawable;
+        return this;
+    }
+
+    public Drawable getDrawable() { return drawable; }
 
 }
