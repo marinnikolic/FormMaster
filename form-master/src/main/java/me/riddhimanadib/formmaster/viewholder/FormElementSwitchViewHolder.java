@@ -50,6 +50,10 @@ public class FormElementSwitchViewHolder extends BaseViewHolder {
 
         if(!formElement.isEditable()) return;
 
+        setSwitchCheckedChangeListener(position);
+    }
+
+    private void setSwitchCheckedChangeListener(final int position) {
         mSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {

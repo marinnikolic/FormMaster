@@ -49,6 +49,17 @@ public class FormElementPickerMultiViewHolder extends BaseViewHolder {
         final boolean[] optionsSelected = new boolean[mFormElementPickerMulti.getOptions().size()];
         final ArrayList<Integer> mSelectedItems = new ArrayList();
 
+        reformatOptionsInFormatNeeded(optionsSelected, options, mSelectedItems);
+        // prepare the dialog
+        AlertDialog dialog = dialogPrepare(context, optionsSelected, options, mSelectedItems, position);
+
+        if(!formElement.isEditable()) return;
+
+        editTextValueClickListener(dialog);
+        textViewTitleClickListener(dialog);
+    }
+
+    private void reformatOptionsInFormatNeeded(boolean[] optionsSelected, final CharSequence[] options, final ArrayList<Integer> mSelectedItems) {
         for (int i = 0; i < mFormElementPickerMulti.getOptions().size(); i++) {
             options[i] = mFormElementPickerMulti.getOptions().get(i);
             optionsSelected[i] = false;
@@ -58,8 +69,9 @@ public class FormElementPickerMultiViewHolder extends BaseViewHolder {
                 mSelectedItems.add(i);
             }
         }
+    }
 
-        // prepare the dialog
+    private AlertDialog dialogPrepare(Context context, boolean[] optionsSelected, final CharSequence[] options, final ArrayList<Integer> mSelectedItems, final int position) {
         final AlertDialog dialog  = new AlertDialog.Builder(context)
                 .setTitle(mFormElementPickerMulti.getPickerTitle())
                 .setMultiChoiceItems(options, optionsSelected,
@@ -93,16 +105,19 @@ public class FormElementPickerMultiViewHolder extends BaseViewHolder {
                 })
                 .setNegativeButton(mFormElementPickerMulti.getNegativeText(), null)
                 .create();
+        return dialog;
+    }
 
-        if(!formElement.isEditable()) return;
-
+    private void editTextValueClickListener(final AlertDialog dialog) {
         mEditTextValue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.show();
             }
         });
+    }
 
+    private void textViewTitleClickListener(final AlertDialog dialog) {
         mTextViewTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

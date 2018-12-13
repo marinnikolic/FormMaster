@@ -74,25 +74,15 @@ public class FormListenerActivity extends AppCompatActivity implements OnFormEle
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         mFormBuilder = new FormBuilder(this, mRecyclerView, this);
 
-        //FormHeader header1 = FormHeader.createInstance("Personal Info");
+        FormHeader header1 = FormHeader.createInstance("Personal Info");
         FormElementTextEmail element11 = FormElementTextEmail.createInstance().setTitle("Email").setValue("nekiMail@gmail.com");
         FormElementTextPhone element12 = FormElementTextPhone.createInstance().setTitle("Phone").setValue("+8801712345678");
-        FormElementPickerSingle e1 = FormElementPickerSingle.createInstance().setTitle("PICKER").setValue("Test picker");
+        FormElementPickerSingle e1 = FormElementPickerSingle.createInstance().setTitle("Pick one").setValue("Test picker");
 
         FormHeader header2 = FormHeader.createInstance("Family Info");
         FormElementTextSingleLine element21 = FormElementTextSingleLine.createInstance().setTitle("Location").setValue("Dhaka");
         FormElementTextMultiLine element22 = FormElementTextMultiLine.createInstance().setTitle("Address");
         FormElementTextNumber element23 = FormElementTextNumber.createInstance().setTitle("Zip Code").setValue("1000");
-
-        FormHeader h1 = FormHeader.createInstance("Family Info");
-        FormElementTextSingleLine e11 = FormElementTextSingleLine.createInstance().setTitle("Location").setValue("Dhaka");
-        FormElementTextMultiLine e2 = FormElementTextMultiLine.createInstance().setTitle("Address");
-        FormElementTextNumber e3 = FormElementTextNumber.createInstance().setTitle("Zip Code").setValue("1000");
-
-        FormHeader h2 = FormHeader.createInstance("Family Info");
-        FormElementTextSingleLine e4 = FormElementTextSingleLine.createInstance().setTitle("Location").setValue("Dhaka");
-        FormElementTextMultiLine e5 = FormElementTextMultiLine.createInstance().setTitle("Address");
-        FormElementTextNumber e6 = FormElementTextNumber.createInstance().setTitle("Zip Code").setValue("1000");
 
         FormHeader header3 = FormHeader.createInstance("Schedule");
         FormElementPickerDate element31 = FormElementPickerDate.createInstance().setTitle("Date").setDateFormat("MMM dd, yyyy");
@@ -104,21 +94,10 @@ public class FormListenerActivity extends AppCompatActivity implements OnFormEle
 
         List<BaseFormElement> formItems = new ArrayList<>();
 
-        //formItems.add(header1);
+        formItems.add(header1);
         formItems.add(element11);
         formItems.add(element12);
         formItems.add(e1);
-
-        formItems.add(h1);
-        formItems.add(e11);
-        formItems.add(e2);
-        formItems.add(e3);
-        formItems.add(h2);
-        formItems.add(e4);
-        formItems.add(e5);
-        formItems.add(e6);
-
-
         formItems.add(header2);
         formItems.add(element21);
         formItems.add(element22);

@@ -40,6 +40,10 @@ public class FormElementSelectViewHolder extends BaseViewHolder {
 
         if (!formElement.isEditable()) return;
 
+        setItemViewClickListener();
+    }
+
+    private void setItemViewClickListener() {
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

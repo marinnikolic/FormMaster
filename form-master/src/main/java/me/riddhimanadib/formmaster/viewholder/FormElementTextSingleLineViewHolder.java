@@ -44,6 +44,10 @@ public class FormElementTextSingleLineViewHolder extends BaseViewHolder {
 
         if (!formElement.isEditable()) return;
 
+        setItemViewClickListener(context);
+    }
+
+    private void setItemViewClickListener(final Context context) {
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

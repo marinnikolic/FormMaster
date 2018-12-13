@@ -26,10 +26,7 @@ public class FormElementTextMultiLineViewHolder extends BaseViewHolder {
         mTextViewTitle = (AppCompatTextView) v.findViewById(R.id.formElementTitle);
         mEditTextValue = (AppCompatEditText) v.findViewById(R.id.formElementValue);
         mFormCustomEditTextListener = listener;
-        mEditTextValue.addTextChangedListener(mFormCustomEditTextListener);
-        mEditTextValue.setMaxLines(4);
-        mEditTextValue.setSingleLine(false);
-        mEditTextValue.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_FLAG_MULTI_LINE);
+        setEditTextValueSettings();
     }
 
     @Override
@@ -46,6 +43,17 @@ public class FormElementTextMultiLineViewHolder extends BaseViewHolder {
 
         if (!formElement.isEditable()) return;
 
+        setItemViewClickListener(context);
+    }
+
+    private void setEditTextValueSettings() {
+        mEditTextValue.addTextChangedListener(mFormCustomEditTextListener);
+        mEditTextValue.setMaxLines(4);
+        mEditTextValue.setSingleLine(false);
+        mEditTextValue.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_FLAG_MULTI_LINE);
+    }
+
+    private void setItemViewClickListener(final Context context) {
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -44,6 +44,10 @@ public class FormElementTextNumberViewHolder extends BaseViewHolder {
 
         if (!formElement.isEditable()) return;
 
+        itemViewClickListener(context);
+    }
+
+    private void itemViewClickListener(final Context context) {
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -44,6 +44,10 @@ public class FormElementTextPasswordViewHolder extends BaseViewHolder {
 
         if (!formElement.isEditable()) return;
 
+        itemViewClickListner(context);
+    }
+
+    private void itemViewClickListner(final Context context) {
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

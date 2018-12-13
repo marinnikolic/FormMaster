@@ -31,6 +31,7 @@ public class FormElementPickerDateViewHolder extends BaseViewHolder {
     private ReloadListener mReloadListener;
     private BaseFormElement mFormElement;
     private int mPosition;
+    private DatePickerDialog.OnDateSetListener date;
 
     public FormElementPickerDateViewHolder(View v, Context context, ReloadListener reloadListener) {
         super(v);
@@ -45,6 +46,7 @@ public class FormElementPickerDateViewHolder extends BaseViewHolder {
         mFormElement = formElement;
         mPosition = position;
 
+        settingUpDatePickerDialogListener();
         setUpDatePickerDialog(context);
 
         setEditTextParameters(formElement);
@@ -57,29 +59,29 @@ public class FormElementPickerDateViewHolder extends BaseViewHolder {
         textViewTitleClickListener();
     }
 
-    /**
-     * setting up date picker dialog listener
-     */
-    DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
-        @Override
-        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-            mCalendarCurrentDate.set(Calendar.YEAR, year);
-            mCalendarCurrentDate.set(Calendar.MONTH, monthOfYear);
-            mCalendarCurrentDate.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+    private void settingUpDatePickerDialogListener() {
+        DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                mCalendarCurrentDate.set(Calendar.YEAR, year);
+                mCalendarCurrentDate.set(Calendar.MONTH, monthOfYear);
+                mCalendarCurrentDate.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-            String myFormatDate = ((FormElementPickerDate) mFormElement).getDateFormat();
-            SimpleDateFormat sdfDate = new SimpleDateFormat(myFormatDate, Locale.US);
+                String myFormatDate = ((FormElementPickerDate) mFormElement).getDateFormat();
+                SimpleDateFormat sdfDate = new SimpleDateFormat(myFormatDate, Locale.US);
 
-            String currentValue = mFormElement.getValue();
-            String newValue = sdfDate.format(mCalendarCurrentDate.getTime());
+                String currentValue = mFormElement.getValue();
+                String newValue = sdfDate.format(mCalendarCurrentDate.getTime());
 
-            // trigger event only if the value is changed
-            if (!currentValue.equals(newValue)) {
-                mReloadListener.updateValue(mPosition, newValue);
+                // trigger event only if the value is changed
+                if (!currentValue.equals(newValue)) {
+                    mReloadListener.updateValue(mPosition, newValue);
+                }
             }
-        }
 
-    };
+        };
+        this.date = date;
+    }
 
     private void setUpDatePickerDialog(Context context) {
         mDatePickerDialog = new DatePickerDialog(context,

@@ -31,6 +31,7 @@ public class FormElementPickerTimeViewHolder extends BaseViewHolder {
     private ReloadListener mReloadListener;
     private BaseFormElement mFormElement;
     private int mPosition;
+    private TimePickerDialog.OnTimeSetListener time;
 
     public FormElementPickerTimeViewHolder(View v, Context context, ReloadListener reloadListener) {
         super(v);
@@ -38,11 +39,9 @@ public class FormElementPickerTimeViewHolder extends BaseViewHolder {
         mEditTextValue = (AppCompatEditText) v.findViewById(R.id.formElementValue);
         mReloadListener = reloadListener;
         mCalendarCurrentTime = java.util.Calendar.getInstance();
-        mTimePickerDialog = new TimePickerDialog(context,
-                time,
-                mCalendarCurrentTime.get(Calendar.HOUR),
-                mCalendarCurrentTime.get(Calendar.MINUTE),
-                false);
+
+        setUpTimePickerDialogListener();
+        initializeTimePickerDialogVariable(context);
     }
 
     @Override
@@ -51,19 +50,46 @@ public class FormElementPickerTimeViewHolder extends BaseViewHolder {
         mPosition = position;
         mTextViewTitle.setText(formElement.getTitle());
 
-        setEditTextParameters(formElement);
+        setEditTextValueParameters(formElement);
         setFieldEditable(formElement);
         changingTextColor(formElement);
         
         if (!formElement.isEditable()) return;
 
-        mEditTextValue.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mTimePickerDialog.show();
-            }
-        });
+        setEditTextValueClickListener();
+        setTextViewTitleClickListener();
+    }
 
+    private void initializeTimePickerDialogVariable(Context context) {
+        mTimePickerDialog = new TimePickerDialog(context,
+                time,
+                mCalendarCurrentTime.get(Calendar.HOUR),
+                mCalendarCurrentTime.get(Calendar.MINUTE),
+                false);
+    }
+
+    private void setUpTimePickerDialogListener() {
+        TimePickerDialog.OnTimeSetListener time = new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                mCalendarCurrentTime.set(Calendar.HOUR_OF_DAY, hourOfDay);
+                mCalendarCurrentTime.set(Calendar.MINUTE, minute);
+
+                String myFormatTime = ((FormElementPickerTime) mFormElement).getTimeFormat();
+                SimpleDateFormat sdfTime = new SimpleDateFormat(myFormatTime);
+
+                String currentValue = mFormElement.getValue();
+                String newValue = sdfTime.format(mCalendarCurrentTime.getTime());
+                // trigger event only if the value is changed
+                if (!currentValue.equals(newValue)) {
+                    mReloadListener.updateValue(mPosition, newValue);
+                }
+            }
+        };
+        this.time = time;
+    }
+
+    private void setTextViewTitleClickListener() {
         mTextViewTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,28 +98,16 @@ public class FormElementPickerTimeViewHolder extends BaseViewHolder {
         });
     }
 
-    /**
-     * setting up time picker dialog listener
-     */
-    TimePickerDialog.OnTimeSetListener time = new TimePickerDialog.OnTimeSetListener() {
-        @Override
-        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-            mCalendarCurrentTime.set(Calendar.HOUR_OF_DAY, hourOfDay);
-            mCalendarCurrentTime.set(Calendar.MINUTE, minute);
-
-            String myFormatTime = ((FormElementPickerTime) mFormElement).getTimeFormat();
-            SimpleDateFormat sdfTime = new SimpleDateFormat(myFormatTime);
-
-            String currentValue = mFormElement.getValue();
-            String newValue = sdfTime.format(mCalendarCurrentTime.getTime());
-            // trigger event only if the value is changed
-            if (!currentValue.equals(newValue)) {
-                mReloadListener.updateValue(mPosition, newValue);
+    private void setEditTextValueClickListener() {
+        mEditTextValue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mTimePickerDialog.show();
             }
-        }
-    };
+        });
+    }
 
-    private void setEditTextParameters(BaseFormElement formElement) {
+    private void setEditTextValueParameters(BaseFormElement formElement) {
         mEditTextValue.setText(formElement.getValue());
         mEditTextValue.setHint(formElement.getHint());
         mEditTextValue.setFocusableInTouchMode(false);

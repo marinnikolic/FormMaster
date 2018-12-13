@@ -46,6 +46,10 @@ public class FormElementTextEmailViewHolder extends BaseViewHolder {
 
         if (!formElement.isEditable()) return;
 
+        itemViewClickListener(context);
+    }
+
+    private void itemViewClickListener(final Context context) {
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,6 +59,7 @@ public class FormElementTextEmailViewHolder extends BaseViewHolder {
             }
         });
     }
+
     private void setEditTextParameters(BaseFormElement formElement) {
         mTextViewTitle.setText(formElement.getTitle());
         mEditTextValue.setText(formElement.getValue());
