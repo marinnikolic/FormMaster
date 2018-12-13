@@ -66,7 +66,6 @@ public class FormBuilder {
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(mFormAdapter);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-
     }
 
     public void reloadFormElements() {

@@ -97,13 +97,14 @@ public class FormListenerActivity extends AppCompatActivity implements OnFormEle
         FormHeader header3 = FormHeader.createInstance("Schedule");
         FormElementPickerDate element31 = FormElementPickerDate.createInstance().setTitle("Date").setDateFormat("MMM dd, yyyy");
 
-        FormElementPickerTime element32 = FormElementPickerTime.createInstance().setTitle("Time").setTimeFormat("KK hh");
+        FormElementPickerTime element32 = FormElementPickerTime.createInstance().setTitle("Time").setTimeFormat("kk:mm");
         FormElementTextPassword element33 = FormElementTextPassword.createInstance().setTitle("Password").setValue("abcd1234");
 
         FormElementSwitch element43 = FormElementSwitch.createInstance().setTitle("Frozen?").setSwitchTexts("Yes", "No");
 
         List<BaseFormElement> formItems = new ArrayList<>();
 
+        //formItems.add(header1);
         formItems.add(element11);
         formItems.add(element12);
         formItems.add(e1);

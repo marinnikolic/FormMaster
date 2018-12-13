@@ -81,12 +81,11 @@ public class FormElementPickerTimeViewHolder extends BaseViewHolder {
             mCalendarCurrentTime.set(Calendar.HOUR_OF_DAY, hourOfDay);
             mCalendarCurrentTime.set(Calendar.MINUTE, minute);
 
-            String myFormatTime = ((FormElementPickerTime) mFormElement).getTimeFormat(); // custom format
-            SimpleDateFormat sdfTime = new SimpleDateFormat(myFormatTime, Locale.US);
+            String myFormatTime = ((FormElementPickerTime) mFormElement).getTimeFormat();
+            SimpleDateFormat sdfTime = new SimpleDateFormat(myFormatTime);
 
             String currentValue = mFormElement.getValue();
             String newValue = sdfTime.format(mCalendarCurrentTime.getTime());
-
             // trigger event only if the value is changed
             if (!currentValue.equals(newValue)) {
                 mReloadListener.updateValue(mPosition, newValue);
