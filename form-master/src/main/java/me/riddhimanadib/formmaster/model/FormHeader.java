@@ -25,10 +25,6 @@ public class FormHeader extends BaseFormElement {
     }
 
     public FormHeader setBackgroundColor(int color) {
-        this.backgroundColor = color;
-        return this;
+        return (FormHeader) super.setBacgroundColor(color);
     }
-
-    public int getBackgroundColor() { return backgroundColor; }
-
 }
