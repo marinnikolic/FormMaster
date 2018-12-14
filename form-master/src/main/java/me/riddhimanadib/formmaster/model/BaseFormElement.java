@@ -90,7 +90,7 @@ public class BaseFormElement {
         return this;
     }
 
-    public BaseFormElement setBacgroundColor(int color) {
+    public BaseFormElement setBackgroundColor(int color) {
         backgroundColor = color;
         return this;
     }
