@@ -71,7 +71,10 @@ public class FormElementTextSingleLineViewHolder extends BaseViewHolder {
 
     private void changingTextColor(BaseFormElement formElement) {
         mTextViewTitle.setTextColor(formElement.getTitleColor());
-        mEditTextValue.setTextColor(formElement.getValueColor());
+        if(formElement.getValue().equals("") || formElement.getValue() == null)
+            mEditTextValue.setHintTextColor(formElement.getHintColor());
+        else
+            mEditTextValue.setTextColor(formElement.getValueColor());
     }
 
  }

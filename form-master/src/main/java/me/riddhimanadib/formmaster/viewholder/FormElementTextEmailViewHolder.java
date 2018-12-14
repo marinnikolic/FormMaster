@@ -1,6 +1,7 @@
 package me.riddhimanadib.formmaster.viewholder;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.AppCompatTextView;
 import android.text.InputType;
@@ -72,7 +73,10 @@ public class FormElementTextEmailViewHolder extends BaseViewHolder {
     }
 
     private void changingTextColor(BaseFormElement formElement) {
-        mEditTextValue.setTextColor(formElement.getValueColor());
         mTextViewTitle.setTextColor(formElement.getTitleColor());
+        if(formElement.getValue().equals("") || formElement.getValue() == null)
+            mEditTextValue.setHintTextColor(formElement.getHintColor());
+        else
+            mEditTextValue.setTextColor(formElement.getValueColor());
     }
 }

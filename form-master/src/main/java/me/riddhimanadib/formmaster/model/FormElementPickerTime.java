@@ -57,6 +57,10 @@ public class FormElementPickerTime extends BaseFormElement {
         return (FormElementPickerTime) super.setValueColor(color);
     }
 
+    public FormElementPickerTime setHintColor(int color) {
+        return (FormElementPickerTime) super.setHintColor(color);
+    }
+
     // custom setter
     public FormElementPickerTime setTimeFormat(String format) {
         checkValidTimeFormat(format);

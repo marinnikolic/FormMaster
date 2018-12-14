@@ -60,6 +60,10 @@ public class FormElementPickerMulti extends BaseFormElement {
         return (FormElementPickerMulti) super.setTitleColor(color);
     }
 
+    public FormElementPickerMulti setHintColor(int color) {
+        return (FormElementPickerMulti) super.setHintColor(color);
+    }
+
     // custom setters
     public FormElementPickerMulti setOptions(List<String> mOptions) {
         this.options = mOptions;

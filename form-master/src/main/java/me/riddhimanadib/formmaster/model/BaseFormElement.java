@@ -36,6 +36,7 @@ public class BaseFormElement {
     private boolean mEditable = true;
     private int mValueColor =  Color.GRAY;
     private int mTitleColor =  Color.BLACK;
+    private int mHintColor = Color.BLACK;
 
     // setters
     public BaseFormElement setTag(int mTag) {
@@ -83,6 +84,11 @@ public class BaseFormElement {
         return this;
     }
 
+    public BaseFormElement setHintColor(int color) {
+        mHintColor = color;
+        return this;
+    }
+
     // getters
     public int getTag() {
         return this.mTag;
@@ -114,7 +120,9 @@ public class BaseFormElement {
 
     public int getTitleColor() { return this.mTitleColor; }
 
-    public int getValueColor() {return this.mValueColor;}
+    public int getValueColor() { return this.mValueColor; }
+
+    public int getHintColor() { return this.mHintColor; }
 
     @Override
     public String toString() {

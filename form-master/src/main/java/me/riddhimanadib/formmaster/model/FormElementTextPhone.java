@@ -49,4 +49,8 @@ public class FormElementTextPhone extends BaseFormElement {
     public FormElementTextPhone setValueColor(int color) {
         return (FormElementTextPhone) super.setValueColor(color);
     }
+
+    public FormElementTextPhone setHintColor(int color) {
+        return (FormElementTextPhone) super.setHintColor(color);
+    }
 }

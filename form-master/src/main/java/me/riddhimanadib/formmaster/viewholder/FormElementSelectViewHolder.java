@@ -29,7 +29,7 @@ public class FormElementSelectViewHolder extends BaseViewHolder {
         mTextViewValue = v.findViewById(R.id.formElementValue);
         mReloadListener = reloadListener;
         mOnSelectListener = onSelectListener;
-        showDropdownIcon(v, true);
+        selectIconDrawable = v.findViewById(R.id.selectIcon);
     }
 
     @Override
@@ -60,16 +60,10 @@ public class FormElementSelectViewHolder extends BaseViewHolder {
     }
 
     private void setDrawableIcon() {
-        if(mFormElement.getDrawable() != null)
+        if(mFormElement.getDrawable() != null) {
+            selectIconDrawable.setVisibility(View.VISIBLE);
             selectIconDrawable.setImageDrawable(mFormElement.getDrawable());
-    }
-
-    private void showDropdownIcon(View v, boolean show) {
-        selectIconDrawable = v.findViewById(R.id.selectIcon);
-        if(!show)
-            selectIconDrawable.setVisibility(v.GONE);
-        else
-            selectIconDrawable.setVisibility(v.VISIBLE);
+        }
     }
 
     private void setFieldEditable(BaseFormElement formElement) {
@@ -84,7 +78,10 @@ public class FormElementSelectViewHolder extends BaseViewHolder {
     }
 
     private void changingTextColor(BaseFormElement formElement) {
-        mTextViewValue.setTextColor(formElement.getValueColor());
         mTextViewTitle.setTextColor(formElement.getTitleColor());
+        if(formElement.getValue().equals("") || formElement.getValue() == null)
+            mTextViewValue.setHintTextColor(formElement.getHintColor());
+        else
+            mTextViewValue.setTextColor(formElement.getValueColor());
     }
 }

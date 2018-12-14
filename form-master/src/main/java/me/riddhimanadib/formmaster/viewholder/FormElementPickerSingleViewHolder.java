@@ -39,7 +39,7 @@ public class FormElementPickerSingleViewHolder extends BaseViewHolder {
         mTextViewTitle = (AppCompatTextView) v.findViewById(R.id.formElementTitle);
         mEditTextValue = (AppCompatEditText) v.findViewById(R.id.formElementValue);
         mReloadListener = reloadListener;
-        showDropdownIcon(v, false);
+        mDropdownImage = v.findViewById(R.id.dropdownIcon);
     }
 
     @Override
@@ -75,21 +75,18 @@ public class FormElementPickerSingleViewHolder extends BaseViewHolder {
     }
 
     private void changingTextColor(BaseFormElement formElement) {
-        mEditTextValue.setTextColor(formElement.getValueColor());
         mTextViewTitle.setTextColor(formElement.getTitleColor());
-    }
-
-    private void showDropdownIcon(View v, boolean isHidden) {
-        mDropdownImage = v.findViewById(R.id.dropdownIcon);
-        if(isHidden)
-            mDropdownImage.setVisibility(v.GONE);
+        if(formElement.getValue().equals("") || formElement.getValue() == null)
+            mEditTextValue.setHintTextColor(formElement.getHintColor());
         else
-            mDropdownImage.setVisibility(v.VISIBLE);
+            mEditTextValue.setTextColor(formElement.getValueColor());
     }
 
     private void setDrawableIcon() {
-        if(mFormElementPickerSingle.getDrawable() != null)
+        if(mFormElementPickerSingle.getDrawable() != null) {
+            mDropdownImage.setVisibility(View.VISIBLE);
             mDropdownImage.setImageDrawable(mFormElementPickerSingle.getDrawable());
+        }
     }
 
     private void editTextValueClickListener(final AlertDialog dialog) {

@@ -52,4 +52,8 @@ public class FormElementTextSingleLine extends BaseFormElement {
     public FormElementTextSingleLine setValueColor(int color) {
         return (FormElementTextSingleLine) super.setValueColor(color);
     }
+
+    public FormElementTextSingleLine setHintColor(int color) {
+        return (FormElementTextSingleLine) super.setHintColor(color);
+    }
 }

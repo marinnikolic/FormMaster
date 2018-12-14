@@ -57,6 +57,10 @@ public class FormElementPickerDate extends BaseFormElement {
         return (FormElementPickerDate) super.setValueColor(color);
     }
 
+    public FormElementPickerDate setHintColor(int color) {
+        return (FormElementPickerDate) super.setHintColor(color);
+    }
+
     // custom setter
     public FormElementPickerDate setDateFormat(String format) {
         checkValidDateFormat(format);

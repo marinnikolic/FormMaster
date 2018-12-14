@@ -97,8 +97,11 @@ public class FormElementPickerDateViewHolder extends BaseViewHolder {
     }
 
     private  void changingTextColor(BaseFormElement formElement) {
-        mEditTextValue.setTextColor(formElement.getValueColor());
         mTextViewTitle.setTextColor(formElement.getTitleColor());
+        if(formElement.getValue().equals("") || formElement.getValue() == null)
+            mEditTextValue.setHintTextColor(formElement.getHintColor());
+        else
+            mEditTextValue.setTextColor(formElement.getValueColor());
     }
 
     private void setEditTextParameters(BaseFormElement formElement) {

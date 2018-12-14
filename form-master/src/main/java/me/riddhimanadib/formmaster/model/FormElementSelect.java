@@ -51,6 +51,10 @@ public class FormElementSelect extends BaseFormElement {
         return (FormElementSelect) super.setValueColor(color);
     }
 
+    public FormElementSelect setHintColor(int color) {
+        return (FormElementSelect) super.setHintColor(color);
+    }
+
     //custom methods
     public FormElementSelect setDrawable(Drawable drawable) {
         this.drawable = drawable;

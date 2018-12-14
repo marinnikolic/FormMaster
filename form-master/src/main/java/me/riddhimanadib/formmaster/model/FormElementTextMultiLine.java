@@ -50,4 +50,8 @@ public class FormElementTextMultiLine extends BaseFormElement {
     public FormElementTextMultiLine setValueColor(int color) {
         return (FormElementTextMultiLine)  super.setValueColor(color);
     }
+
+    public FormElementTextMultiLine setHintColor(int color) {
+        return (FormElementTextMultiLine) super.setHintColor(color);
+    }
 }

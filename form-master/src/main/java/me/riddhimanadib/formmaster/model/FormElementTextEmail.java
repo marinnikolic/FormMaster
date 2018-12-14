@@ -52,4 +52,7 @@ public class FormElementTextEmail extends BaseFormElement {
         return (FormElementTextEmail) super.setValueColor(color);
     }
 
+    public  FormElementTextEmail setHintColor(int color) {
+        return (FormElementTextEmail) super.setHintColor(color);
+    }
 }

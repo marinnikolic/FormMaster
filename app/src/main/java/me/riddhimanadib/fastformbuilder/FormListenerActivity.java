@@ -75,10 +75,10 @@ public class FormListenerActivity extends AppCompatActivity implements OnFormEle
         mFormBuilder = new FormBuilder(this, mRecyclerView, this);
 
         FormHeader header1 = FormHeader.createInstance("Personal Info");
-        FormElementTextEmail element11 = FormElementTextEmail.createInstance().setTitle("Email").setValue("nekiMail@gmail.com");
-        FormElementTextPhone element12 = FormElementTextPhone.createInstance().setTitle("Phone").setValue("+8801712345678");
+        FormElementTextEmail element11 = FormElementTextEmail.createInstance().setTitle("Email").setValue("email@mail.mail");
+        FormElementTextPhone element12 = FormElementTextPhone.createInstance().setTitle("Phone").setHint("+8801712345678");
         FormElementPickerSingle e1 = FormElementPickerSingle.createInstance().setTitle("Pick one").setValue("Test picker");
-        FormElementSelect select = FormElementSelect.createInstance().setTitle("Pick one").setValue("Test picker");
+        FormElementSelect select = FormElementSelect.createInstance().setTitle("Select").setValue("Value");
 
         FormHeader header2 = FormHeader.createInstance("Family Info");
         FormElementTextSingleLine element21 = FormElementTextSingleLine.createInstance().setTitle("Location").setValue("Dhaka");
@@ -87,7 +87,6 @@ public class FormListenerActivity extends AppCompatActivity implements OnFormEle
 
         FormHeader header3 = FormHeader.createInstance("Schedule");
         FormElementPickerDate element31 = FormElementPickerDate.createInstance().setTitle("Date").setDateFormat("MMM dd, yyyy");
-
         FormElementPickerTime element32 = FormElementPickerTime.createInstance().setTitle("Time").setTimeFormat("kk:mm");
         FormElementTextPassword element33 = FormElementTextPassword.createInstance().setTitle("Password").setValue("abcd1234");
 

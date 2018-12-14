@@ -50,4 +50,8 @@ public class FormElementTextPassword extends BaseFormElement {
     public FormElementTextPassword setValueColor(int color) {
         return (FormElementTextPassword) super.setValueColor(color);
     }
+
+    public FormElementTextPassword setHintColor(int color) {
+        return (FormElementTextPassword) super.setHintColor(color);
+    }
 }

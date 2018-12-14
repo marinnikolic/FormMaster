@@ -49,4 +49,8 @@ public class FormElementTextNumber extends BaseFormElement {
     public FormElementTextNumber setValueColor(int color) {
         return (FormElementTextNumber) super.setValueColor(color);
     }
+
+    public FormElementTextNumber setHintColor(int color) {
+        return (FormElementTextNumber) super.setHintColor(color);
+    }
 }
