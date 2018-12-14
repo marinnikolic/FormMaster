@@ -64,8 +64,8 @@ public class FormElementSelect extends BaseFormElement {
 
     public Drawable getDrawable() { return drawable; }
 
-    public FormElementSelect hideDrawable() {
-        this.hideDrawable = true;
+    public FormElementSelect hideDrawable(Boolean hideDrawable) {
+        this.hideDrawable = hideDrawable;
         return this;
     }
 
