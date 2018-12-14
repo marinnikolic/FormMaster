@@ -52,6 +52,7 @@ public class FormElementPickerSingleViewHolder extends BaseViewHolder {
         setFieldEditable(formElement);
         changingTextColor(formElement);
         setDrawableIcon();
+        hideDrawable();
 
         AlertDialog dialog = reformatOptionsInFormatNeeded(position, context);
 
@@ -72,6 +73,13 @@ public class FormElementPickerSingleViewHolder extends BaseViewHolder {
     private void setFieldEditable(BaseFormElement formElement) {
         mTextViewTitle.setEnabled(formElement.isEditable());
         mEditTextValue.setEnabled(formElement.isEditable());
+    }
+
+    private void hideDrawable() {
+        if(mFormElementPickerSingle.isDrawableHidden())
+            mDropdownImage.setVisibility(View.GONE);
+        else
+            mDropdownImage.setVisibility(View.VISIBLE);
     }
 
     private void changingTextColor(BaseFormElement formElement) {

@@ -41,6 +41,7 @@ public class FormElementSelectViewHolder extends BaseViewHolder {
         setFieldEditable(formElement);
         changingTextColor(formElement);
         setDrawableIcon();
+        hideDrawable();
 
         if (!formElement.isEditable()) return;
 
@@ -75,6 +76,13 @@ public class FormElementSelectViewHolder extends BaseViewHolder {
     private void setEditTextParameters(BaseFormElement formElement) {
         mTextViewTitle.setEnabled(formElement.isEditable());
         mTextViewValue.setEnabled(formElement.isEditable());
+    }
+
+    private void hideDrawable() {
+        if(mFormElement.isDrawableHidden())
+            selectIconDrawable.setVisibility(View.GONE);
+        else
+            selectIconDrawable.setVisibility(View.VISIBLE);
     }
 
     private void changingTextColor(BaseFormElement formElement) {
