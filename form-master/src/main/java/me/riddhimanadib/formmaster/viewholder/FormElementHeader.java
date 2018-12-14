@@ -1,6 +1,7 @@
 package me.riddhimanadib.formmaster.viewholder;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
 

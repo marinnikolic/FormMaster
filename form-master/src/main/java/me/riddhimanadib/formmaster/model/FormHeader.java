@@ -1,6 +1,5 @@
 package me.riddhimanadib.formmaster.model;
 
-import android.graphics.Color;
 
 /**
  * Object for header of the form lists
@@ -9,7 +8,7 @@ import android.graphics.Color;
 
 public class FormHeader extends BaseFormElement {
 
-    private int backgroundColor = Color.LTGRAY;
+    private int backgroundColor;
     public FormHeader() {
     }
 
@@ -30,6 +29,6 @@ public class FormHeader extends BaseFormElement {
         return this;
     }
 
-    public int getBackgroundColor() {return backgroundColor; }
+    public int getBackgroundColor() { return backgroundColor; }
 
 }

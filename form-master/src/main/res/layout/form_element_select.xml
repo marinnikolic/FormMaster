@@ -35,11 +35,10 @@
 
         <ImageView
             android:id="@+id/selectIcon"
-            android:layout_weight="0.02"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:visibility="gone"
             android:tint="?colorAccent"
             android:layout_marginRight="10dp" />
 
