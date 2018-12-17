@@ -105,8 +105,8 @@ public class FormElementPickerSingle extends BaseFormElement {
         return this.pickerTitle;
     }
 
-    public FormElementPickerSingle hideDrawable() {
-        this.hideDrawable = true;
+    public FormElementPickerSingle hideDrawable(Boolean hideDrawable) {
+        this.hideDrawable = hideDrawable;
         return this;
     }
 

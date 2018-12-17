@@ -1,6 +1,8 @@
 package me.riddhimanadib.formmaster.model;
 
 
+import android.graphics.Color;
+
 /**
  * Object for header of the form lists
  * Created by Adib on 18-Apr-17.
@@ -25,6 +27,6 @@ public class FormHeader extends BaseFormElement {
     }
 
     public FormHeader setBackgroundColor(int color) {
-        return (FormHeader) super.setBacgroundColor(color);
+        return (FormHeader) super.setBackgroundColor(color);
     }
 }
