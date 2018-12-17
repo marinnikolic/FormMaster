@@ -34,5 +34,5 @@ public class FormElementHeader extends BaseViewHolder {
 
     private void changeBackgorungColor(BaseFormElement formElement, View v) {
         v.setBackgroundColor(formElement.getBackgroundColor());
-}
+    }
 }

@@ -74,7 +74,7 @@ public class FormListenerActivity extends AppCompatActivity implements OnFormEle
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         mFormBuilder = new FormBuilder(this, mRecyclerView, this);
 
-        FormHeader header1 = FormHeader.createInstance("Personal Info").setBackgroundColor(Color.GREEN);
+        FormHeader header1 = FormHeader.createInstance("Personal Info");
         FormElementTextEmail element11 = FormElementTextEmail.createInstance().setTitle("Email").setValue("email@mail.mail");
         FormElementTextPhone element12 = FormElementTextPhone.createInstance().setTitle("Phone").setHint("+8801712345678");
         FormElementPickerSingle e1 = FormElementPickerSingle.createInstance().setTitle("Pick one").setValue("Test picker");
