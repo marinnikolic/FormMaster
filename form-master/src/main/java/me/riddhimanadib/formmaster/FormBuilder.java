@@ -106,15 +106,13 @@ public class FormBuilder {
         for(int i = 0; i < mFormAdapter.getItemCount(); i ++) {
             BaseFormElement baseFormElement = mFormAdapter.getValueAtIndex(i);
 
-            if (!baseFormElement.isRequired()) {
-                setValidElementColorProperties(baseFormElement);
-                continue;
-            }
-
             if(!checkAndValidateFormElement(baseFormElement)) {
                 notValidFormElements ++;
                 setNotValidElementColorProperties(baseFormElement);
+                continue;
             }
+            
+            setValidElementColorProperties(baseFormElement);
         }
         reloadFormElements();
         return !(notValidFormElements > 0);
