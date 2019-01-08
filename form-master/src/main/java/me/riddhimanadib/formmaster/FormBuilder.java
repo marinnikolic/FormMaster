@@ -106,24 +106,22 @@ public class FormBuilder {
         for(int i = 0; i < mFormAdapter.getItemCount(); i ++) {
             BaseFormElement baseFormElement = mFormAdapter.getValueAtIndex(i);
 
-            if (!baseFormElement.isRequired()) {
+            if(checkAndValidateFormElement(baseFormElement)) {
                 setValidElementColorProperties(baseFormElement);
-                continue;
-            }
-
-            if(!checkAndValidateFormElement(baseFormElement)) {
-                notValidFormElements ++;
+            } else {
                 setNotValidElementColorProperties(baseFormElement);
-                continue;
             }
 
-            setValidElementColorProperties(baseFormElement);
         }
         reloadFormElements();
         return !(notValidFormElements > 0);
     }
 
     private boolean checkAndValidateFormElement(BaseFormElement baseFormElement) {
+
+        if(!baseFormElement.isRequired()) {
+            return true;
+        }
 
         if(baseFormElement.getValue().equals("") || baseFormElement.getValue() == null) {
             return false;
