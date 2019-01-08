@@ -101,7 +101,7 @@ public class FormBuilder {
      *
      * @return
      */
-    private boolean isValidForm() {
+    public boolean isValidForm() {
         int notValidFormElements = 0;
         for(int i = 0; i < mFormAdapter.getItemCount(); i ++) {
             BaseFormElement baseFormElement = mFormAdapter.getValueAtIndex(i);
