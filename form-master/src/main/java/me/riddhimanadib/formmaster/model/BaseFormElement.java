@@ -32,6 +32,7 @@ public class BaseFormElement {
     private String mTitle; // title to be shown on left
     private String mValue; // value to be shown on right
     private String mHint; // value to be shown if mValue is null
+    private String validationPattern;
     private boolean mRequired; // value to set is the field is required
     private boolean mEditable = true;
     private int mValueColor =  Color.GRAY;
@@ -146,4 +147,11 @@ public class BaseFormElement {
                 '}';
     }
 
+    public String getValidationPattern() {
+        return validationPattern;
+    }
+
+    public void setValidationPattern(String validationPattern) {
+        this.validationPattern = validationPattern;
+    }
 }
