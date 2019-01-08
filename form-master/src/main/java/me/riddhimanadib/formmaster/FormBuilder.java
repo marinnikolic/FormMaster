@@ -116,6 +116,7 @@ public class FormBuilder {
                 setNotValidElementColorProperties(baseFormElement);
             }
         }
+        reloadFormElements();
         return !(notValidFormElements > 0);
     }
 
