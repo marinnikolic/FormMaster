@@ -113,7 +113,7 @@ public class FormBuilder {
 
             if(!checkAndValidateFormElement(baseFormElement)) {
                 notValidFormElements ++;
-                setNotValidelementColorProperties(baseFormElement);
+                setNotValidElementColorProperties(baseFormElement);
             }
         }
         return !(notValidFormElements > 0);
@@ -143,7 +143,7 @@ public class FormBuilder {
         baseFormElement.setHintColor(color);
     }
 
-    private void setNotValidelementColorProperties(BaseFormElement baseFormElement) {
+    private void setNotValidElementColorProperties(BaseFormElement baseFormElement) {
         TypedValue typedValue = new TypedValue();
         context.getTheme().resolveAttribute(R.attr.colorPrimary, typedValue, true);
         int color = typedValue.data;
