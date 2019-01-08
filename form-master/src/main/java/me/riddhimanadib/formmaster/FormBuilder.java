@@ -110,6 +110,7 @@ public class FormBuilder {
                 setValidElementColorProperties(baseFormElement);
             } else {
                 setNotValidElementColorProperties(baseFormElement);
+                notValidFormElements ++;
             }
 
         }
