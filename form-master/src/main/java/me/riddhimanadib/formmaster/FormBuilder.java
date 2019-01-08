@@ -137,7 +137,7 @@ public class FormBuilder {
 
     private void setValidElementColorProperties(BaseFormElement baseFormElement) {
         TypedValue typedValue = new TypedValue();
-        context.getTheme().resolveAttribute(R.attr.colorAccent, typedValue, true);
+        context.getTheme().resolveAttribute(R.attr.colorPrimaryDark, typedValue, true);
         int color = typedValue.data;
         baseFormElement.setTitleColor(color);
         baseFormElement.setValueColor(color);
@@ -146,7 +146,7 @@ public class FormBuilder {
 
     private void setNotValidElementColorProperties(BaseFormElement baseFormElement) {
         TypedValue typedValue = new TypedValue();
-        context.getTheme().resolveAttribute(R.attr.colorPrimary, typedValue, true);
+        context.getTheme().resolveAttribute(R.attr.colorAccent, typedValue, true);
         int color = typedValue.data;
         baseFormElement.setTitleColor(color);
         baseFormElement.setValueColor(color);
