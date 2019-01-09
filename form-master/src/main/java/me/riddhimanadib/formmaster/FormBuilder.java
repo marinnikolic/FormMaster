@@ -120,11 +120,11 @@ public class FormBuilder {
 
     private boolean checkAndValidateFormElement(BaseFormElement baseFormElement) {
 
-        if(!baseFormElement.isRequired()) {
+        if(!baseFormElement.isRequired() && !baseFormElement.isOptionalRequired()) {
             return true;
         }
 
-        if(baseFormElement.getValue().equals("") || baseFormElement.getValue() == null) {
+        if(!baseFormElement.isOptionalRequired() && (baseFormElement.getValue().equals("") || baseFormElement.getValue() == null)) {
             return false;
         }
 

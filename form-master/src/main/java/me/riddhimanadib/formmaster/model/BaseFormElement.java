@@ -35,6 +35,7 @@ public class BaseFormElement {
     private String validationPattern;
     private boolean mRequired; // value to set is the field is required
     private boolean mEditable = true;
+    private boolean optionalRequired;
     private int mValueColor =  Color.GRAY;
     private int mTitleColor =  Color.BLACK;
     private int mHintColor = Color.BLACK;
@@ -68,6 +69,11 @@ public class BaseFormElement {
 
     public BaseFormElement setRequired(boolean required) {
         this.mRequired = required;
+        return this;
+    }
+
+    public BaseFormElement setOptionalRequired(boolean optionalRequired) {
+        this.optionalRequired = optionalRequired;
         return this;
     }
 
@@ -120,6 +126,8 @@ public class BaseFormElement {
     public boolean isRequired() {
         return this.mRequired;
     }
+
+    public boolean isOptionalRequired() { return this.optionalRequired; }
 
     public boolean isEditable() {
         return this.mEditable;
