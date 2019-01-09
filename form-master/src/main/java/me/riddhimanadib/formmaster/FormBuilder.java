@@ -128,13 +128,13 @@ public class FormBuilder {
             return false;
         }
 
-        if(baseFormElement.getValidationPattern() == null || baseFormElement.getValidationPattern().equals("")) {
+        try {
+            Pattern pattern = Pattern.compile(baseFormElement.getValidationPattern());
+            Matcher matcher = pattern.matcher(baseFormElement.getValue());
+            return matcher.matches();
+        } catch (Exception ex) {
             return true;
         }
-
-        Pattern pattern = Pattern.compile(baseFormElement.getValidationPattern());
-        Matcher matcher = pattern.matcher(baseFormElement.getValue());
-        return matcher.matches();
     }
 
     private void setValidElementColorProperties(BaseFormElement baseFormElement) {
