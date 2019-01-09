@@ -120,21 +120,31 @@ public class FormBuilder {
 
     private boolean checkAndValidateFormElement(BaseFormElement baseFormElement) {
 
-        if(!baseFormElement.isRequired() && !baseFormElement.isOptionalRequired()) {
-            return true;
+        if(baseFormElement.isRequired()) {
+            if(baseFormElement.getValue() == null || baseFormElement.getValue().isEmpty()) {
+                return false;
+            } else {
+                return checkValidationWithRegex(baseFormElement);
+            }
         }
 
-        if(baseFormElement.isOptionalRequired() && (baseFormElement.getValue() == null || baseFormElement.getValue().isEmpty())) {
-            return true;
+        if(baseFormElement.isOptionalRequired()) {
+            if(baseFormElement.getValue() == null || baseFormElement.getValue().isEmpty()) {
+                return true;
+            } else {
+                return checkValidationWithRegex(baseFormElement);
+            }
         }
+        return true;
+    }
 
-        try {
-            Pattern pattern = Pattern.compile(baseFormElement.getValidationPattern());
-            Matcher matcher = pattern.matcher(baseFormElement.getValue());
-            return matcher.matches();
-        } catch (Exception ex) {
+    private boolean checkValidationWithRegex(BaseFormElement baseFormElement) {
+        if(baseFormElement.getValidationPattern() == null || baseFormElement.getValidationPattern().isEmpty()) {
             return true;
         }
+        Pattern pattern = Pattern.compile(baseFormElement.getValidationPattern());
+        Matcher matcher = pattern.matcher(baseFormElement.getValue());
+        return matcher.matches();
     }
 
     private void setValidElementColorProperties(BaseFormElement baseFormElement) {
