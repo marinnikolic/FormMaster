@@ -124,8 +124,8 @@ public class FormBuilder {
             return true;
         }
 
-        if(!baseFormElement.isOptionalRequired() && (baseFormElement.getValue().equals("") || baseFormElement.getValue() == null)) {
-            return false;
+        if(baseFormElement.isOptionalRequired() && (baseFormElement.getValue() == null || baseFormElement.getValue().isEmpty())) {
+            return true;
         }
 
         try {
